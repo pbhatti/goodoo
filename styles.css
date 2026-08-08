@@ -1825,15 +1825,15 @@ p {
 }
 
 .donation-amounts-row {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.6rem;
   width: 100%;
 }
 
 .donation-amount {
-  flex: 1 1 0;
   min-width: 0;
+  width: 100%;
   min-height: var(--touch-min);
   padding: 0.65rem 0.5rem;
   border: 0.0625rem solid var(--charcoal);
@@ -1849,7 +1849,7 @@ p {
 }
 
 .donation-amount.is-other {
-  flex: 2 1 0;
+  grid-column: span 2;
   min-width: 0;
 }
 
@@ -1952,11 +1952,29 @@ p {
 }
 
 .donation-support {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* 4px */
   margin: 0;
   font-size: 0.84rem;
   line-height: 1.4;
   color: var(--mute);
   text-wrap: pretty;
+}
+
+.donation-support-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  width: 1.625rem; /* 26px */
+  height: 1.5rem;
+  filter: drop-shadow(0 0.0625rem 0.125rem rgba(176, 214, 32, 0.35));
+}
+
+.donation-support-icon svg,
+.donation-support-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 @media (min-width: 61.25rem) {
