@@ -2030,9 +2030,10 @@ p {
   .hero-title {
     font-size: clamp(1.6rem, 7vw, 2.25rem);
     line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     max-width: 20em;
     padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .donation-form {
