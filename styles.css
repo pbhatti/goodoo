@@ -2123,6 +2123,12 @@ p {
     max-width: none;
   }
 
+  #team .section-head h2,
+  #help .section-head h2 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
   .help .section-head h2 {
     padding-right: 2.5rem;
   }
