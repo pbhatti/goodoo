@@ -647,6 +647,7 @@ p {
 .hero-title {
   max-width: 16.5em;
   margin: 0 0 4.375rem; /* 70px gap above donation form */
+  padding-bottom: 2rem; /* 32px */
   color: #fff;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.8vw, 4rem); /* 64px desktop */
