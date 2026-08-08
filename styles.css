@@ -2108,6 +2108,11 @@ p {
     font-size: 14px;
   }
 
+  .donation-support {
+    text-align: left;
+    align-items: flex-start;
+  }
+
   /* —— Type —— */
   h2,
   .section-head h2,
