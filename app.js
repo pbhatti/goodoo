@@ -543,6 +543,9 @@
       maximumFractionDigits: 0,
     }).format(n);
 
+  const formatDonateAmount = (n) =>
+    `₹ ${new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(n)}`;
+
   const bankNote = document.querySelector("[data-bank-note]");
 
   /**
@@ -563,6 +566,7 @@
     };
 
     const heading = form.querySelector("[data-donation-heading]");
+    const submitBtn = form.querySelector("[data-donation-submit]");
     const freqButtons = form.querySelectorAll("[data-freq]");
     const amountButtons = form.querySelectorAll(".donation-amount");
     const customWrap = form.querySelector("[data-custom-amount-wrap]");
@@ -580,6 +584,29 @@
       marker.classList.add("is-active");
     };
 
+    const getResolvedAmount = () => {
+      if (state.isOther) {
+        const value = Number(state.customAmount);
+        return Number.isFinite(value) && value > 0 ? value : null;
+      }
+      return state.amount;
+    };
+
+    const syncSubmitLabel = () => {
+      if (!submitBtn) return;
+      const amount = getResolvedAmount();
+      const cadence = state.frequency === "monthly" ? "monthly" : "once";
+
+      if (!amount) {
+        submitBtn.innerHTML = `Donate today <span class="donation-submit-arrow" aria-hidden="true">→</span>`;
+        return;
+      }
+
+      submitBtn.innerHTML = `Donate <span class="donation-submit-amount">${formatDonateAmount(
+        amount
+      )}</span> ${cadence} <span class="donation-submit-arrow" aria-hidden="true">→</span>`;
+    };
+
     const syncBankNote = () => {
       if (!bankNote || !form.closest("[data-donate-panel]")) return;
       const amount = getResolvedAmount();
@@ -592,14 +619,6 @@
       }).`;
     };
 
-    const getResolvedAmount = () => {
-      if (state.isOther) {
-        const value = Number(state.customAmount);
-        return Number.isFinite(value) && value > 0 ? value : null;
-      }
-      return state.amount;
-    };
-
     const setFrequency = (frequency) => {
       state.frequency = frequency;
       freqButtons.forEach((btn) => {
@@ -608,6 +627,7 @@
         btn.setAttribute("aria-pressed", String(selected));
       });
       syncHeading({ animate: true });
+      syncSubmitLabel();
       syncBankNote();
     };
 
@@ -624,6 +644,7 @@
         btn.classList.toggle("is-selected", selected);
         btn.setAttribute("aria-pressed", String(selected));
       });
+      syncSubmitLabel();
       syncBankNote();
     };
 
@@ -637,6 +658,7 @@
       if (customWrap) customWrap.hidden = false;
       if (customError) customError.hidden = true;
       customInput?.focus();
+      syncSubmitLabel();
       syncBankNote();
     };
 
@@ -663,6 +685,7 @@
       }
       state.customAmount = digitsOnly;
       if (customError) customError.hidden = true;
+      syncSubmitLabel();
       syncBankNote();
     });
 
@@ -685,6 +708,7 @@
     });
 
     syncHeading();
+    syncSubmitLabel();
     syncBankNote();
   };
 
