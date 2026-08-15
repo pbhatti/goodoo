@@ -6,6 +6,8 @@
   --theme-accent: oklch(0.829 0.171 81.038);
   --theme-cta: oklch(0.293 0 0);
   --lime: var(--theme-accent);
+  /* Match cursor-paw fill for eyebrow masks (except green-4) */
+  --eyebrow-paw: var(--theme-accent);
   --lime-soft: var(--theme-mint);
   --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, oklch(0.45 0.12 75));
   --ink: oklch(0.293 0 0);
@@ -14,9 +16,9 @@
   --cta: var(--theme-cta);
   --cta-hover: oklch(0.395 0 0);
   --mute: oklch(0.475 0 0);
-  --line: oklch(0.932 0.005 106);
-  --paper: oklch(0.957 0.001 197);
-  --page: oklch(0.957 0.001 197);
+  --line: oklch(0.920 0.010 100);
+  --paper: oklch(0.948 0.010 100);
+  --page: oklch(0.948 0.010 100);
   --white: oklch(1 0 0);
   --forest: oklch(0.301 0.044 164.149);
   --shadow: 0 1.125rem 2.5rem rgba(17, 17, 17, 0.12);
@@ -51,10 +53,10 @@
 
 [data-theme="green-2"] .eyebrow::before,
 [data-theme="green-2"] .eyebrow.light::before {
-  background-color: var(--lime);
+  background-color: var(--eyebrow-paw);
   background-image: none;
-  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
-  mask: url("assets/paw1.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/paw2.svg") center / contain no-repeat;
+  mask: url("assets/paw2.svg") center / contain no-repeat;
 }
 
 [data-theme="green-1"] {
@@ -66,39 +68,47 @@
   --lime-soft: var(--theme-mint);
   --lime-deep: color-mix(in srgb, var(--theme-accent) 82%, oklch(0.42 0.12 35));
   --forest: var(--theme-brand);
+  /* Whisper-warm page (low C, high L) — subtle orange cast, not peachy */
+  --line: oklch(0.935 0.006 48);
+  --paper: oklch(0.970 0.006 48);
+  --page: oklch(0.970 0.006 48);
   --cursor-paw: url("assets/cursor-paw-orange.svg") 16 16, pointer;
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
 [data-theme="green-1"] .eyebrow::before,
 [data-theme="green-1"] .eyebrow.light::before {
-  background-color: var(--lime);
+  background-color: var(--eyebrow-paw);
   background-image: none;
-  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
-  mask: url("assets/paw1.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/paw2.svg") center / contain no-repeat;
+  mask: url("assets/paw2.svg") center / contain no-repeat;
 }
 
 [data-theme="green-3"] {
-  /* Fern brand for text; neon accent for decorative lime / paw / cursor / shield */
+  /* Fern brand for text; softer leaf-lime accent (less neon chartreuse) */
   --theme-brand: oklch(0.505 0.103 150);
   --theme-mint: oklch(0.932 0.035 150);
-  --theme-accent: oklch(0.900 0.170 125);
+  --theme-accent: oklch(0.860 0.155 132);
   --theme-cta: oklch(0.293 0 0);
   --lime-soft: var(--theme-mint);
-  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, oklch(0.45 0.12 125));
+  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, oklch(0.45 0.12 132));
   --forest: var(--theme-brand);
   --eyebrow: var(--theme-brand);
   --nav-accent: var(--theme-brand);
-  --cursor-paw: url("assets/cursor-paw-lime.svg") 16 16, pointer;
+  /* Light cool-neutral page so mint journey cards separate clearly */
+  --line: oklch(0.930 0.006 200);
+  --paper: oklch(0.975 0.005 200);
+  --page: oklch(0.975 0.005 200);
+  --cursor-paw: url("assets/cursor-paw-lime.svg?v=abe677") 16 16, pointer;
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
 [data-theme="green-3"] .eyebrow::before,
 [data-theme="green-3"] .eyebrow.light::before {
-  background-color: var(--lime);
+  background-color: var(--eyebrow-paw);
   background-image: none;
-  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
-  mask: url("assets/paw1.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/paw2.svg") center / contain no-repeat;
+  mask: url("assets/paw2.svg") center / contain no-repeat;
 }
 
 [data-theme="green-3"] .donation-support-icon {
@@ -131,7 +141,10 @@
 
 [data-theme="green-4"] .eyebrow::before,
 [data-theme="green-4"] .eyebrow.light::before {
+  background-color: transparent;
   background-image: url("assets/paw2.svg");
+  -webkit-mask: none;
+  mask: none;
 }
 
 *,
@@ -313,8 +326,8 @@ p {
 .eyebrow::before {
   content: "";
   width: 1.09375rem; /* 0.875rem + 25% */
-  height: 1.09375rem;
-  background: url("assets/paw1.svg") center / contain no-repeat;
+  height: 1.2578125rem; /* paw2 is 20×23 */
+  background: url("assets/paw2.svg") center / contain no-repeat;
 }
 
 .eyebrow.light {
@@ -322,7 +335,7 @@ p {
 }
 
 .eyebrow.light::before {
-  background: url("assets/paw1.svg") center / contain no-repeat;
+  background: url("assets/paw2.svg") center / contain no-repeat;
 }
 
 .lead {
@@ -2164,11 +2177,18 @@ p {
   border-radius: 62.4375rem;
   gap: 0.4rem;
   font-size: 1rem; /* 16px */
+  flex-wrap: wrap;
+  white-space: normal;
+  height: auto;
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 .donation-submit-amount {
   color: var(--lime);
   font-weight: 700;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .donation-submit-arrow {
@@ -2438,6 +2458,12 @@ p {
 
   .donation-amount {
     font-size: 14px;
+  }
+
+  .donation-submit {
+    padding: 0.85rem 1.1rem;
+    row-gap: 0.1rem;
+    column-gap: 0.3rem;
   }
 
   .donation-support {

@@ -25,14 +25,14 @@
     const normalizeTheme = (theme) => (theme === "green-5" ? "green-4" : theme);
     const getTheme = () => {
       const theme = normalizeTheme(root.getAttribute("data-theme"));
-      return THEMES.includes(theme) ? theme : "green-2";
+      return THEMES.includes(theme) ? theme : "green-4";
     };
     const isMobile = () => mobileMq.matches;
     const isNavOpen = () => document.querySelector("[data-header]")?.classList.contains("is-open");
 
     const applyTheme = (theme) => {
       theme = normalizeTheme(theme);
-      if (!THEMES.includes(theme)) theme = "green-2";
+      if (!THEMES.includes(theme)) theme = "green-4";
       root.setAttribute("data-theme", theme);
       try {
         localStorage.setItem(THEME_KEY, theme);
@@ -842,7 +842,7 @@
     });
 
     customInput?.addEventListener("input", () => {
-      const digitsOnly = customInput.value.replace(/\D/g, "");
+      const digitsOnly = customInput.value.replace(/\D/g, "").slice(0, 7);
       if (customInput.value !== digitsOnly) {
         customInput.value = digitsOnly;
       }
