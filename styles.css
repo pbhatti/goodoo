@@ -1,25 +1,24 @@
 :root,
 [data-theme="green-2"] {
-  /* Four-swatch palette: brand, mint, lime, cta
-     Brand L darkened for WCAG AA + APCA Pass on text/shell pairs */
+  /* Four-swatch palette: brand, mint, lime, cta — all sRGB-clamped oklch */
   --theme-brand: oklch(0.507 0.113 161.017);
-  --theme-mint: #d0f4e2;
-  --theme-accent: #ffb900;
-  --theme-cta: #2c2c2c;
+  --theme-mint: oklch(0.936 0.045 163.831);
+  --theme-accent: oklch(0.829 0.171 81.038);
+  --theme-cta: oklch(0.293 0 0);
   --lime: var(--theme-accent);
   --lime-soft: var(--theme-mint);
-  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, #8a5a00);
-  --ink: #2c2c2c;
-  --ink-soft: #2c2c2c;
-  --charcoal: #2c2c2c;
+  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, oklch(0.45 0.12 75));
+  --ink: oklch(0.293 0 0);
+  --ink-soft: oklch(0.293 0 0);
+  --charcoal: oklch(0.293 0 0);
   --cta: var(--theme-cta);
-  --cta-hover: #474747;
-  --mute: #5c5c5c;
-  --line: #e8e8e4;
-  --paper: #f0f1f1;
-  --page: #f0f1f1;
-  --white: #ffffff;
-  --forest: #163528;
+  --cta-hover: oklch(0.395 0 0);
+  --mute: oklch(0.475 0 0);
+  --line: oklch(0.932 0.005 106);
+  --paper: oklch(0.957 0.001 197);
+  --page: oklch(0.957 0.001 197);
+  --white: oklch(1 0 0);
+  --forest: oklch(0.301 0.044 164.149);
   --shadow: 0 1.125rem 2.5rem rgba(17, 17, 17, 0.12);
   --radius: 1.125rem;
   --header-h: 5.5rem;
@@ -50,41 +49,89 @@
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
+[data-theme="green-2"] .eyebrow::before,
+[data-theme="green-2"] .eyebrow.light::before {
+  background-color: var(--lime);
+  background-image: none;
+  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
+  mask: url("assets/paw1.svg") center / contain no-repeat;
+}
+
 [data-theme="green-1"] {
-  /* Brand L darkened; accent L raised (C clamped to sRGB) for APCA Pass */
+  /* Brand L darkened; accent at sRGB max C for H35 / L0.782 */
   --theme-brand: oklch(0.501 0.116 144.489);
-  --theme-mint: #d8ecd5;
+  --theme-mint: oklch(0.922 0.037 141.565);
   --theme-accent: oklch(0.782 0.129 35.155);
-  --theme-cta: #2c2c2c;
+  --theme-cta: oklch(0.293 0 0);
   --lime-soft: var(--theme-mint);
-  --lime-deep: color-mix(in srgb, var(--theme-accent) 82%, #8a2a12);
+  --lime-deep: color-mix(in srgb, var(--theme-accent) 82%, oklch(0.42 0.12 35));
   --forest: var(--theme-brand);
   --cursor-paw: url("assets/cursor-paw-orange.svg") 16 16, pointer;
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
+[data-theme="green-1"] .eyebrow::before,
+[data-theme="green-1"] .eyebrow.light::before {
+  background-color: var(--lime);
+  background-image: none;
+  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
+  mask: url("assets/paw1.svg") center / contain no-repeat;
+}
+
 [data-theme="green-3"] {
-  /* Fern + Soft Lime — brand/mint share H150; accent soft chartreuse */
+  /* Fern brand for text; neon accent for decorative lime / paw / cursor / shield */
   --theme-brand: oklch(0.505 0.103 150);
   --theme-mint: oklch(0.932 0.035 150);
   --theme-accent: oklch(0.900 0.170 125);
-  --theme-cta: #2c2c2c;
+  --theme-cta: oklch(0.293 0 0);
   --lime-soft: var(--theme-mint);
-  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, #5a6e12);
+  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, oklch(0.45 0.12 125));
   --forest: var(--theme-brand);
+  --eyebrow: var(--theme-brand);
+  --nav-accent: var(--theme-brand);
+  --cursor-paw: url("assets/cursor-paw-lime.svg") 16 16, pointer;
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
+[data-theme="green-3"] .eyebrow::before,
+[data-theme="green-3"] .eyebrow.light::before {
+  background-color: var(--lime);
+  background-image: none;
+  -webkit-mask: url("assets/paw1.svg") center / contain no-repeat;
+  mask: url("assets/paw1.svg") center / contain no-repeat;
+}
+
+[data-theme="green-3"] .donation-support-icon {
+  background-color: var(--lime);
+  filter: drop-shadow(0 0.0625rem 0.125rem color-mix(in srgb, var(--lime) 35%, transparent));
+}
+
 [data-theme="green-4"] {
-  /* Bubbly green + Bubbly blue — vivid H148 brand; sky-bubble accent H230 */
-  --theme-brand: oklch(0.505 0.146 148);
-  --theme-mint: oklch(0.948 0.040 148);
-  --theme-accent: oklch(0.800 0.126 230);
-  --theme-cta: #2c2c2c;
+  /* Cream page + forest ink; brand L darkened for AA text/shell; sRGB-clamped */
+  --theme-brand: oklch(0.525 0.170 144.089);
+  --theme-mint: oklch(0.831 0.098 150.056);
+  --theme-accent: oklch(0.831 0.098 150.056);
+  --theme-cta: oklch(0.296 0.092 144.854);
   --lime-soft: var(--theme-mint);
-  --lime-deep: color-mix(in srgb, var(--theme-accent) 78%, #0a6a9e);
-  --forest: var(--theme-brand);
-  --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-accent) 55%, transparent);
+  --lime-deep: color-mix(in srgb, var(--theme-mint) 70%, var(--theme-cta));
+  --ink: oklch(0.296 0.092 144.854);
+  --ink-soft: oklch(0.296 0.092 144.854);
+  --charcoal: oklch(0.296 0.092 144.854);
+  --cta: var(--theme-cta);
+  --cta-hover: oklch(0.424 0.082 146.345);
+  --mute: oklch(0.493 0.062 146.044);
+  --line: oklch(0.907 0.017 88);
+  --paper: oklch(0.967 0.011 89.722);
+  --page: oklch(0.967 0.011 89.722);
+  --forest: oklch(0.296 0.092 144.854);
+  --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-brand) 45%, transparent);
+  --shadow: 0 1.125rem 2.5rem color-mix(in srgb, oklch(0.296 0.092 144.854) 14%, transparent);
+  --cursor-paw: url("assets/cursor-paw-green.svg") 16 16, pointer;
+}
+
+[data-theme="green-4"] .eyebrow::before,
+[data-theme="green-4"] .eyebrow.light::before {
+  background-image: url("assets/paw2.svg");
 }
 
 *,
@@ -267,9 +314,7 @@ p {
   content: "";
   width: 1.09375rem; /* 0.875rem + 25% */
   height: 1.09375rem;
-  background-color: var(--lime);
-  -webkit-mask: url("assets/cursor-paw.svg") center / contain no-repeat;
-  mask: url("assets/cursor-paw.svg") center / contain no-repeat;
+  background: url("assets/paw1.svg") center / contain no-repeat;
 }
 
 .eyebrow.light {
@@ -277,7 +322,7 @@ p {
 }
 
 .eyebrow.light::before {
-  background-color: var(--lime);
+  background: url("assets/paw1.svg") center / contain no-repeat;
 }
 
 .lead {
@@ -581,7 +626,7 @@ p {
 .theme-sheet {
   position: fixed;
   z-index: 61;
-  min-width: 16.5rem;
+  min-width: 15rem;
   margin: 0;
   padding: 0.4rem;
   background: var(--white);
@@ -1068,14 +1113,14 @@ p {
   font-size: 1rem; /* 16px */
   font-weight: 400;
   line-height: 1.4;
-  color: #2c2c2c;
+  color: var(--ink);
 }
 
 /* Stories carousel */
 .stories {
   --stories-radius: 2.25rem;
   --stories-gap: 1rem;
-  --stories-ink: #2c2c2c;
+  --stories-ink: var(--ink);
   background: var(--page);
 }
 
@@ -1429,7 +1474,7 @@ p {
 }
 
 .journey-card--stat .journey-card-copy {
-  color: #2c2c2c;
+  color: var(--ink);
   opacity: 1;
 }
 
@@ -1632,7 +1677,7 @@ p {
 
 .advisor p {
   margin: 0;
-  color: #2c2c2c;
+  color: var(--ink);
   font-size: 0.875rem;
 }
 
@@ -1697,7 +1742,7 @@ p {
   font-size: 1rem; /* 16px */
   font-weight: 400;
   line-height: 1.45;
-  color: #2c2c2c;
+  color: var(--ink);
 }
 
 .help-card__image {

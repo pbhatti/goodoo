@@ -7,6 +7,7 @@
     (function () {
       try {
         var theme = localStorage.getItem("goodoo-theme");
+        if (theme === "green-5") theme = "green-4";
         if (theme === "green-1" || theme === "green-2" || theme === "green-3" || theme === "green-4") {
           document.documentElement.setAttribute("data-theme", theme);
         }
@@ -555,6 +556,7 @@
               <i style="--swatch:#D8ECD5"></i>
               <i style="--swatch:#FF987E"></i>
               <i style="--swatch:#2C2C2C"></i>
+              <i style="--swatch:#F0F1F1"></i>
             </span>
           </button>
         </li>
@@ -566,6 +568,7 @@
               <i style="--swatch:#D0F4E2"></i>
               <i style="--swatch:#FFB900"></i>
               <i style="--swatch:#2C2C2C"></i>
+              <i style="--swatch:#F0F1F1"></i>
             </span>
           </button>
         </li>
@@ -577,6 +580,7 @@
               <i style="--swatch:#D9F0DC"></i>
               <i style="--swatch:#C4F16A"></i>
               <i style="--swatch:#2C2C2C"></i>
+              <i style="--swatch:#F0F1F1"></i>
             </span>
           </button>
         </li>
@@ -584,10 +588,10 @@
           <button type="button" class="theme-option" role="option" data-theme-option="green-4" aria-selected="false">
             <span>Green 4</span>
             <span class="theme-swatches" aria-hidden="true">
-              <i style="--swatch:#007A2E"></i>
-              <i style="--swatch:#DDF6DF"></i>
-              <i style="--swatch:#58CCFF"></i>
-              <i style="--swatch:#2C2C2C"></i>
+              <i style="--swatch:#008118"></i>
+              <i style="--swatch:#99DAA6"></i>
+              <i style="--swatch:#013809"></i>
+              <i style="--swatch:#F7F4EC"></i>
             </span>
           </button>
         </li>

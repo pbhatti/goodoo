@@ -22,14 +22,16 @@
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     const mobileMq = window.matchMedia("(max-width: 61.1875rem)");
 
+    const normalizeTheme = (theme) => (theme === "green-5" ? "green-4" : theme);
     const getTheme = () => {
-      const theme = root.getAttribute("data-theme");
+      const theme = normalizeTheme(root.getAttribute("data-theme"));
       return THEMES.includes(theme) ? theme : "green-2";
     };
     const isMobile = () => mobileMq.matches;
     const isNavOpen = () => document.querySelector("[data-header]")?.classList.contains("is-open");
 
     const applyTheme = (theme) => {
+      theme = normalizeTheme(theme);
       if (!THEMES.includes(theme)) theme = "green-2";
       root.setAttribute("data-theme", theme);
       try {
