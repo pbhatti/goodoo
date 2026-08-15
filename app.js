@@ -3,6 +3,167 @@
   const toggle = document.querySelector("[data-nav-toggle]");
   const mobileNav = document.querySelector("[data-mobile-nav]");
 
+  const THEME_KEY = "goodoo-theme";
+  const THEME_LABELS = { "green-1": "Green 1", "green-2": "Green 2", "green-3": "Green 3", "green-4": "Green 4" };
+  const THEMES = Object.keys(THEME_LABELS);
+
+  const initThemeSwitcher = () => {
+    const root = document.documentElement;
+    const switcher = document.querySelector("[data-theme-switcher]");
+    const layer = document.querySelector("[data-theme-layer]");
+    if (!switcher || !layer) return;
+
+    const themeToggle = switcher.querySelector("[data-theme-toggle]");
+    const backdrop = layer.querySelector("[data-theme-backdrop]");
+    const sheet = layer.querySelector("[data-theme-sheet]");
+    const menu = layer.querySelector("#theme-menu");
+    const label = switcher.querySelector("[data-theme-label]");
+    const options = [...layer.querySelectorAll("[data-theme-option]")];
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const mobileMq = window.matchMedia("(max-width: 61.1875rem)");
+
+    const getTheme = () => {
+      const theme = root.getAttribute("data-theme");
+      return THEMES.includes(theme) ? theme : "green-2";
+    };
+    const isMobile = () => mobileMq.matches;
+    const isNavOpen = () => document.querySelector("[data-header]")?.classList.contains("is-open");
+
+    const applyTheme = (theme) => {
+      if (!THEMES.includes(theme)) theme = "green-2";
+      root.setAttribute("data-theme", theme);
+      try {
+        localStorage.setItem(THEME_KEY, theme);
+      } catch (e) {}
+      if (label) label.textContent = THEME_LABELS[theme];
+      options.forEach((option) => {
+        const selected = option.getAttribute("data-theme-option") === theme;
+        option.classList.toggle("is-selected", selected);
+        option.setAttribute("aria-selected", selected ? "true" : "false");
+      });
+      if (themeColorMeta) {
+        const accent = getComputedStyle(root).getPropertyValue("--theme-accent").trim();
+        if (accent) themeColorMeta.setAttribute("content", accent);
+      }
+    };
+
+    const positionSheet = () => {
+      if (!sheet || !themeToggle) return;
+      if (isMobile()) {
+        sheet.style.top = "";
+        sheet.style.left = "";
+        sheet.style.right = "";
+        return;
+      }
+      const rect = themeToggle.getBoundingClientRect();
+      sheet.style.top = `${Math.round(rect.bottom + 7)}px`;
+      sheet.style.left = `${Math.round(rect.left)}px`;
+      sheet.style.right = "auto";
+    };
+
+    const setOpen = (open) => {
+      switcher.classList.toggle("is-open", open);
+      layer.classList.toggle("is-open", open);
+      themeToggle?.setAttribute("aria-expanded", open ? "true" : "false");
+      themeToggle?.setAttribute("aria-haspopup", isMobile() ? "dialog" : "listbox");
+      menu?.setAttribute("aria-hidden", open ? "false" : "true");
+
+      if (sheet) {
+        if (open && isMobile()) {
+          sheet.setAttribute("role", "dialog");
+          sheet.setAttribute("aria-modal", "true");
+          sheet.setAttribute("aria-labelledby", "theme-sheet-title");
+        } else {
+          sheet.removeAttribute("role");
+          sheet.removeAttribute("aria-modal");
+          sheet.removeAttribute("aria-labelledby");
+        }
+      }
+
+      if (backdrop) {
+        const showBackdrop = open && isMobile();
+        backdrop.hidden = !showBackdrop;
+      }
+
+      if (open && isMobile()) {
+        document.body.style.overflow = "hidden";
+      } else if (!isNavOpen()) {
+        document.body.style.overflow = "";
+      }
+
+      if (open) {
+        positionSheet();
+        if (isMobile()) {
+          options.find((option) => option.classList.contains("is-selected"))?.focus();
+        }
+      }
+    };
+
+    applyTheme(getTheme());
+    setOpen(false);
+
+    themeToggle?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setOpen(!switcher.classList.contains("is-open"));
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        applyTheme(option.getAttribute("data-theme-option"));
+        setOpen(false);
+        themeToggle?.focus();
+      });
+    });
+
+    backdrop?.addEventListener("click", () => {
+      setOpen(false);
+      themeToggle?.focus();
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+      if (!layer.classList.contains("is-open")) return;
+      const target = event.target;
+      if (switcher.contains(target) || layer.contains(target)) return;
+      setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!layer.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        setOpen(false);
+        themeToggle?.focus();
+      }
+    });
+
+    window.addEventListener(
+      "resize",
+      () => {
+        if (!layer.classList.contains("is-open")) return;
+        if (!isMobile()) {
+          if (backdrop) backdrop.hidden = true;
+          sheet?.setAttribute("aria-modal", "false");
+          if (!isNavOpen()) document.body.style.overflow = "";
+        }
+        positionSheet();
+      },
+      { passive: true }
+    );
+
+    const onMobileChange = () => {
+      if (layer.classList.contains("is-open")) setOpen(false);
+    };
+    if (mobileMq.addEventListener) {
+      mobileMq.addEventListener("change", onMobileChange);
+    } else if (mobileMq.addListener) {
+      mobileMq.addListener(onMobileChange);
+    }
+  };
+
+  initThemeSwitcher();
+
   /* ——— JourneyBoard (data-driven) ——— */
   const journeyRows = [
     [
