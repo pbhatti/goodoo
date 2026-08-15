@@ -2422,6 +2422,15 @@ p {
     max-width: none;
   }
 
+  #team .section-head h2,
+  #help .section-head h2 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    max-width: none;
+  }
+
   .help .section-head h2 {
     padding-right: 2.5rem;
   }
