@@ -137,6 +137,8 @@
   --focus-ring: 0 0 0 0.1875rem color-mix(in srgb, var(--theme-brand) 45%, transparent);
   --shadow: 0 1.125rem 2.5rem color-mix(in srgb, oklch(0.296 0.092 144.854) 14%, transparent);
   --cursor-paw: url("assets/cursor-paw-green.svg") 16 16, pointer;
+  /* Match assets/paw2.svg fill (#31A246) for shield / shared accents */
+  --eyebrow-paw: #31a246;
 }
 
 [data-theme="green-4"] .eyebrow::before,
@@ -145,6 +147,11 @@
   background-image: url("assets/paw2.svg");
   -webkit-mask: none;
   mask: none;
+}
+
+[data-theme="green-4"] .donation-support-icon {
+  background-color: var(--eyebrow-paw);
+  filter: drop-shadow(0 0.0625rem 0.125rem color-mix(in srgb, var(--eyebrow-paw) 35%, transparent));
 }
 
 *,
