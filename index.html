@@ -37,7 +37,7 @@
   <link rel="preload" as="image" href="assets/goodoo-logo@2x.webp" type="image/webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Geist:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -108,7 +108,16 @@
       </div>
       <div class="hero-content">
         <h1 class="hero-title reveal">
-          Giving Bengaluru's <em>urban animals</em> the care and second chance they deserve.
+          <span class="theme-copy theme-copy--default">Giving Bengaluru's <em>urban animals</em> the care and second chance they deserve.</span>
+          <span class="theme-copy theme-copy--green-4">
+            <span class="hero-bless">
+              <span class="hero-bless-paw" aria-hidden="true"></span>
+              <span class="hero-bless-text">
+                <div class="fx-starlight">Dog</div>
+                <div class="fx-starlight">Bless</div>
+              </span>
+            </span>
+          </span>
         </h1>
       </div>
       <div class="hero-scroll" aria-hidden="true">
@@ -119,7 +128,7 @@
     <div class="hero-donate-anchor">
       <div class="hero-donate-slot">
         <form class="donation-form reveal delay-2" data-donation-form aria-label="Donate to Goodoo">
-          <h2 class="donation-form-heading" data-donation-heading>Choose an amount<br />to donate <div class="fx-marker">per month</div></h2>
+          <h2 class="donation-form-heading" data-donation-heading>Choose an amount<br />to donate</h2>
 
           <div class="donation-form-controls">
             <div class="donation-freq" role="group" aria-label="Donation frequency">
@@ -129,12 +138,12 @@
 
             <div class="donation-amounts" role="group" aria-label="Donation amount">
               <div class="donation-amounts-row">
-                <button type="button" class="donation-amount" data-amount="500" aria-pressed="false">₹ 500</button>
                 <button type="button" class="donation-amount" data-amount="1000" aria-pressed="false">₹ 1000</button>
-                <button type="button" class="donation-amount" data-amount="1500" aria-pressed="false">₹ 1500</button>
+                <button type="button" class="donation-amount is-selected" data-amount="2000" aria-pressed="true">₹ 2000</button>
+                <button type="button" class="donation-amount" data-amount="5000" aria-pressed="false">₹ 5000</button>
               </div>
               <div class="donation-amounts-row">
-                <button type="button" class="donation-amount is-selected" data-amount="2000" aria-pressed="true">₹ 2000</button>
+                <button type="button" class="donation-amount" data-amount="10000" aria-pressed="false">₹ 10000</button>
                 <button type="button" class="donation-amount is-other" data-amount="other" aria-pressed="false">Other amount</button>
               </div>
             </div>
@@ -169,7 +178,8 @@
             <span class="donation-support-icon" aria-hidden="true">
               <img src="assets/shield.svg" alt="" width="26" height="24" />
             </span>
-            <span>Every rupee here translates into medicine, food, and care.</span>
+            <span class="theme-copy theme-copy--default">Every rupee here translates into medicine, food, and care.</span>
+            <span class="theme-copy theme-copy--green-4">All donations are tax exempt under 80G.</span>
           </p>
         </form>
       </div>
@@ -178,9 +188,15 @@
     <section class="section about" id="work">
       <div class="container">
         <div class="about-intro reveal">
-          <p class="eyebrow">What we do</p>
-          <p class="text-display">
+          <p class="eyebrow">
+            <span class="theme-copy theme-copy--default">What we do</span>
+            <span class="theme-copy theme-copy--green-4">What is Goodoo?</span>
+          </p>
+          <p class="text-display theme-copy theme-copy--default">
             Goodoo is a Bengaluru not-for-profit giving community animals, animals rescued from illegal breeders, and abandoned geriatric animals the care and attention they need.
+          </p>
+          <p class="text-display theme-copy theme-copy--green-4">
+            Goodoo Animal Welfare Trust is a not-for-profit established to work towards a better standard of living for community animals, domestic animals confiscated from illegal breeders, and geriatric animals who are abandoned or given up because they require more care and attention.
           </p>
         </div>
         <div class="pillars">
@@ -192,8 +208,12 @@
               </picture>
             </div>
             <div class="pillar-copy">
-              <h3>Treat-and-release</h3>
-              <p>For unwell community animals.</p>
+              <h3>
+                <span class="theme-copy theme-copy--default">Treat-and-release</span>
+                <span class="theme-copy theme-copy--green-4">Rescue, rehabilitation, rehoming</span>
+              </h3>
+              <p class="theme-copy theme-copy--default">For unwell community animals.</p>
+              <p class="theme-copy theme-copy--green-4">For out-of-luck domestic and community animals, cruelty cases, and illegal breeders.</p>
             </div>
           </article>
           <article class="pillar reveal delay-1">
@@ -204,8 +224,12 @@
               </picture>
             </div>
             <div class="pillar-copy">
-              <h3>Rescue &amp; rebuild lives</h3>
-              <p>For out-of-luck domestic animals.</p>
+              <h3>
+                <span class="theme-copy theme-copy--default">Rescue &amp; rebuild lives</span>
+                <span class="theme-copy theme-copy--green-4">A safe nest</span>
+              </h3>
+              <p class="theme-copy theme-copy--default">For out-of-luck domestic animals.</p>
+              <p class="theme-copy theme-copy--green-4">For our rescued dogs at Goodoo Rescue and Rehab Centre.</p>
             </div>
           </article>
           <article class="pillar reveal delay-2">
@@ -216,10 +240,82 @@
               </picture>
             </div>
             <div class="pillar-copy">
-              <h3>Goodoo halfway home</h3>
-              <p>A safe home for our rescues.</p>
+              <h3>
+                <span class="theme-copy theme-copy--default">Goodoo halfway home</span>
+                <span class="theme-copy theme-copy--green-4">A rainbow home</span>
+              </h3>
+              <p class="theme-copy theme-copy--default">A safe home for our rescues.</p>
+              <p class="theme-copy theme-copy--green-4">For geriatric dogs to live out their lives in warmth and comfort, at Serene's Home for Senior Dogs.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section centre" id="centre" aria-labelledby="centre-heading">
+      <div class="container">
+        <div class="centre-intro reveal">
+          <p class="eyebrow">Our centre</p>
+          <h2 id="centre-heading">A cage-free home built for rescue and recovery.</h2>
+          <p class="centre-lede">
+            Goodoo Rescue and Rehab Centre is built on an 80,000 sq ft mango orchard. At capacity, we will be able to house over 150 rescued dogs. Goodoo is an entirely cage-free facility, and our rescues have the run of the space.
+          </p>
+        </div>
+
+        <div class="centre-gallery reveal" data-centre-gallery>
+          <div class="centre-gallery-scroller" data-centre-scroller tabindex="0" role="region" aria-label="Goodoo Rescue and Rehab Centre photo gallery">
+            <figure class="centre-shot centre-shot--lead">
+              <picture>
+                <source srcset="assets/care-field.webp" type="image/webp" />
+                <img src="assets/care-field.jpg" alt="Open grounds at Goodoo Rescue and Rehab Centre with dogs and caretakers" width="1200" height="800" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="centre-shot-caption">80,000 sq ft mango orchard</figcaption>
+            </figure>
+
+            <figure class="centre-shot">
+              <picture>
+                <source srcset="assets/halfway-home.webp" type="image/webp" />
+                <img src="assets/halfway-home.jpg" alt="A rescued dog receiving care at the centre" width="800" height="1000" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="centre-shot-caption">Home for 150+ rescues</figcaption>
+            </figure>
+
+            <figure class="centre-shot">
+              <picture>
+                <source srcset="assets/pack-dogs.webp" type="image/webp" />
+                <img src="assets/pack-dogs.jpg" alt="Rescued dogs roaming freely with a Goodoo volunteer" width="800" height="1000" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="centre-shot-caption">Entirely cage-free</figcaption>
+            </figure>
+
+            <figure class="centre-shot">
+              <picture>
+                <source srcset="assets/story-beach.webp" type="image/webp" />
+                <img src="assets/story-beach.jpg" alt="A happy rescue dog outdoors after rehabilitation" width="800" height="1000" loading="lazy" decoding="async" />
+              </picture>
+              <figcaption class="centre-shot-caption">Space to roam, recover &amp; play</figcaption>
+            </figure>
+
+            <figure class="centre-shot">
+              <picture>
+                <source srcset="assets/hero-dog.webp" type="image/webp" />
+                <img src="assets/hero-dog.jpg" alt="A white rescue dog standing outdoors at the centre" width="800" height="1000" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+          </div>
+
+          <div class="centre-gallery-toolbar">
+            <button type="button" class="centre-nav-btn" data-centre-prev aria-label="Previous centre photo">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button type="button" class="centre-nav-btn" data-centre-next aria-label="Next centre photo">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -269,7 +365,7 @@
       <div class="container">
         <header class="journey-header reveal">
           <p class="eyebrow">Our Journey</p>
-          <h2 id="journey-heading">This is just the beginning,<br />let’s build the future of rescue together</h2>
+          <h2 id="journey-heading">This is just the beginning!<br />Join Goodoo in building the future of rescue together.</h2>
         </header>
         <div class="journey-board reveal" data-journey-board aria-label="Goodoo journey milestones"></div>
       </div>
@@ -279,7 +375,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Our team</p>
-          <h2>Led by experience, driven by heart.</h2>
+          <h2>Goodoo Managing Committee</h2>
         </div>
 
         <article class="director reveal">
@@ -291,64 +387,229 @@
           </figure>
           <div class="director-copy">
             <h3>Anoopa Anand</h3>
-            <p class="role">Executive Director, Goodoo Animal Welfare Trust</p>
+            <p class="role">CEO and Executive Director</p>
             <p>
-              Goodoo is run by Anoopa Anand, a seasoned animal welfare worker and canine rehabilitator. She leads day-to-day operations and sets the protocols and processes of the organisation.
+              Goodoo is run and managed by Anoopa Anand, a seasoned animal welfare worker with over 14 years of experience in the sector. She is solely responsible for running the day-to-day operations of the trust and putting in place the processes and protocols at Goodoo Rescue and Rehab Centre and Serene's Home for Senior Dogs. Anoopa’s focus will be to push urban animals welfare into a professional, well-organised sector, keeping high-end caregiving and a practical approach at the heart of Goodoo's work.
             </p>
           </div>
         </article>
 
         <div class="advisors reveal">
-          <h3>Advised by experts who care</h3>
+          <h3>Goodoo Board of Trustees</h3>
           <div class="advisor-grid">
-            <article class="advisor">
-              <picture>
-                <source srcset="assets/devika.webp" type="image/webp" />
-                <img src="assets/devika.png" alt="Devika Rao" width="160" height="142" loading="lazy" decoding="async" />
-              </picture>
-              <div>
-                <h4>Devika Rao</h4>
-                <p>Market Research &amp; Communications · Ex Accenture and Puma</p>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-devika"
+              >
+                <picture>
+                  <source srcset="assets/devika.webp" type="image/webp" />
+                  <img src="assets/devika.png" alt="" width="160" height="142" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-devika">Devika Rao</h4>
+                  <p>Market Research &amp; Communications · Ex Accenture and Puma</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-devika"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-devika"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Devika Rao</h4>
+                <p>Devika brings market research and brand communications experience from Accenture and Puma to a trust that has to earn public attention, not demand it. She helps Goodoo speak in a voice that is clear, specific, and easy for Bengaluru to trust.</p>
+                <p>On the board she watches how rescue stories, donor updates, and neighbourhood campaigns land — so the work on the street is matched by comms that stay honest and useful.</p>
               </div>
             </article>
-            <article class="advisor">
-              <picture>
-                <source srcset="assets/smriti.webp" type="image/webp" />
-                <img src="assets/smriti.png" alt="Smriti Rana" width="160" height="142" loading="lazy" decoding="async" />
-              </picture>
-              <div>
-                <h4>Smriti Rana</h4>
-                <p>Head, Strategic Programmes &amp; Partnerships · Pallium India</p>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-smriti"
+              >
+                <picture>
+                  <source srcset="assets/smriti.webp" type="image/webp" />
+                  <img src="assets/smriti.png" alt="" width="160" height="142" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-smriti">Smriti Rana</h4>
+                  <p>Head, Strategic Programmes &amp; Partnerships · Pallium India</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-smriti"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-smriti"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Smriti Rana</h4>
+                <p>Smriti leads strategic programmes and partnerships at Pallium India, and brings that same discipline of care-systems to Goodoo’s board. She knows how a small team stays effective when the need on the ground never pauses.</p>
+                <p>As a trustee she helps the organisation build partnerships that last, and programmes that can grow without losing the quality of care each animal receives.</p>
               </div>
             </article>
-            <article class="advisor">
-              <picture>
-                <source srcset="assets/shilpaa.webp" type="image/webp" />
-                <img src="assets/shilpaa.png" alt="Dr. Shilpaa Anand" width="160" height="142" loading="lazy" decoding="async" />
-              </picture>
-              <div>
-                <h4>Dr. Shilpaa Anand</h4>
-                <p>Humanities Department · BITS Pilani, Hyderabad</p>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-shilpaa"
+              >
+                <picture>
+                  <source srcset="assets/shilpaa.webp" type="image/webp" />
+                  <img src="assets/shilpaa.png" alt="" width="160" height="142" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-shilpaa">Dr. Shilpaa Anand</h4>
+                  <p>Humanities Department · BITS Pilani, Hyderabad</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-shilpaa"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-shilpaa"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Dr. Shilpaa Anand</h4>
+                <p>Shilpaa teaches in the Humanities Department at BITS Pilani, Hyderabad. Her academic work sits with questions of care, disability, and how cultures decide whose lives are worth attending to.</p>
+                <p>On the board she keeps Goodoo’s ethics and language honest — how we talk about street animals, caregivers, and the city they share — so the trust’s story never outruns the work.</p>
               </div>
             </article>
-            <article class="advisor">
-              <picture>
-                <source srcset="assets/chitra.webp" type="image/webp" />
-                <img src="assets/chitra.png" alt="Chitra Raghavan" width="160" height="142" loading="lazy" decoding="async" />
-              </picture>
-              <div>
-                <h4>Chitra Raghavan</h4>
-                <p>Partner · Rajaram Legal</p>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-chitra"
+              >
+                <picture>
+                  <source srcset="assets/chitra.webp" type="image/webp" />
+                  <img src="assets/chitra.png" alt="" width="160" height="142" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-chitra">Chitra Raghavan</h4>
+                  <p>Partner · Rajaram Legal</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-chitra"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-chitra"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Chitra Raghavan</h4>
+                <p>Chitra is a partner at Rajaram Legal and brings legal clarity to a trust that handles rescues, land, donations, and public accountability every week. She helps keep the paperwork as sturdy as the kennels.</p>
+                <p>As a trustee she watches governance, compliance, and the quiet decisions that protect the animals — and the people who show up for them — when something goes wrong.</p>
               </div>
             </article>
-            <article class="advisor">
-              <picture>
-                <source srcset="assets/swaroop.webp" type="image/webp" />
-                <img src="assets/swaroop.png" alt="Swaroop Bhartiya" width="160" height="142" loading="lazy" decoding="async" />
-              </picture>
-              <div>
-                <h4>Swaroop Bhartiya</h4>
-                <p>Sr. Marketing and Content Professional</p>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-swaroop"
+              >
+                <picture>
+                  <source srcset="assets/swaroop.webp" type="image/webp" />
+                  <img src="assets/swaroop.png" alt="" width="160" height="142" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-swaroop">Swaroop Bhartiya</h4>
+                  <p>Sr. Marketing and Content Professional</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-swaroop"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-swaroop"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Swaroop Bhartiya</h4>
+                <p>Swaroop is a senior marketing and content professional who helps Goodoo find a public voice that is warm and specific — never guilt-heavy, never vague. He treats every campaign as a chance to make one more person care enough to act.</p>
+                <p>On the board he guides how stories, updates, and outreach stay true to the animals and to the people doing the daily work of feeding, treating, and holding space.</p>
+              </div>
+            </article>
+            <article class="advisor" data-advisor>
+              <button
+                type="button"
+                class="advisor-card"
+                data-advisor-trigger
+                aria-expanded="false"
+                aria-controls="advisor-bio-shilpa"
+              >
+                <picture>
+                  <img src="assets/Shilpa2.png" alt="" width="447" height="558" loading="lazy" decoding="async" />
+                </picture>
+                <div>
+                  <h4 id="advisor-name-shilpa">Shilpa Colluru</h4>
+                  <p>Head—Awareness and Outreach</p>
+                </div>
+                <span class="advisor-arrow" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4.5 11.5 11.5 4.5M6.5 4.5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="advisor-popover"
+                id="advisor-bio-shilpa"
+                data-advisor-popover
+                role="region"
+                aria-labelledby="advisor-name-shilpa"
+                aria-hidden="true"
+                inert
+              >
+                <h4 class="advisor-popover-title">Shilpa Colluru</h4>
+                <p>Shilpa heads Awareness and Outreach — the work of getting Bengaluru to see street animals as neighbours, not noise. She connects volunteers, apartment groups, and the trust so a rescue does not stay invisible.</p>
+                <p>As a trustee she keeps Goodoo present in the city: more people who know who to call, how to help, and why a well-run rehab centre matters for the dogs who live on our streets.</p>
               </div>
             </article>
           </div>
@@ -358,144 +619,50 @@
 
     <section class="section help" id="help">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Get involved</p>
-          <h2>Be part of their rescue story.</h2>
-        </div>
-        <div class="help-grid">
-          <article class="help-card reveal">
-            <div class="help-card__content">
-              <h3>Foster</h3>
-              <p>Take in a rescued dog until they’re fit for the centre — or ready to be adopted.</p>
-            </div>
-            <div class="help-card__image">
-              <picture>
-                <source srcset="assets/dog.webp" type="image/webp" />
-                <img src="assets/dog.png" alt="Illustration of a rescued puppy waiting for a foster home" width="800" height="800" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-          </article>
-          <article class="help-card reveal delay-1">
-            <div class="help-card__content">
-              <h3>Volunteer</h3>
-              <p>Help at the centre: bathe, walk, and do basic training with our wards.</p>
-            </div>
-            <div class="help-card__image">
-              <picture>
-                <source srcset="assets/dogBath.webp" type="image/webp" />
-                <img src="assets/dogBath.png" alt="Illustration of a rescued dog being bathed" width="800" height="800" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-          </article>
-          <article class="help-card reveal delay-2">
-            <div class="help-card__content">
-              <h3>Donate</h3>
-              <p>Support our wards with a monthly gift or by becoming a passive adopter.</p>
-            </div>
-            <div class="help-card__image">
-              <picture>
-                <source srcset="assets/dogHouse.webp" type="image/webp" />
-                <img src="assets/dogHouse.png" alt="Illustration of a rescue dog at a shelter home" width="800" height="800" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-          </article>
-        </div>
-
         <div class="donate-shell reveal" id="donate">
+          <div class="donate-shell-media" aria-hidden="true">
+            <video
+              class="donate-shell-video"
+              data-src="assets/footer2.mp4"
+              poster="assets/footer2-poster.jpg"
+              muted
+              loop
+              playsinline
+              preload="none"
+              disablepictureinpicture
+            ></video>
+          </div>
           <div class="donate-shell-grid">
-            <div class="donate-shell-form">
-              <form class="donation-form donation-form--embedded" data-donation-form aria-label="Donate to Goodoo">
-                <h2 class="donation-form-heading" data-donation-heading>Choose an amount<br />to donate <div class="fx-marker">per month</div></h2>
-
-                <div class="donation-form-controls">
-                  <div class="donation-freq" role="group" aria-label="Donation frequency">
-                    <button type="button" class="donation-freq-btn" data-freq="once" aria-pressed="false">Donate once</button>
-                    <button type="button" class="donation-freq-btn is-selected" data-freq="monthly" aria-pressed="true">Monthly</button>
-                  </div>
-
-                  <div class="donation-amounts" role="group" aria-label="Donation amount">
-                    <div class="donation-amounts-row">
-                      <button type="button" class="donation-amount" data-amount="500" aria-pressed="false">₹ 500</button>
-                      <button type="button" class="donation-amount" data-amount="1000" aria-pressed="false">₹ 1000</button>
-                      <button type="button" class="donation-amount" data-amount="1500" aria-pressed="false">₹ 1500</button>
-                    </div>
-                    <div class="donation-amounts-row">
-                      <button type="button" class="donation-amount is-selected" data-amount="2000" aria-pressed="true">₹ 2000</button>
-                      <button type="button" class="donation-amount is-other" data-amount="other" aria-pressed="false">Other amount</button>
-                    </div>
-                  </div>
-
-                  <div class="donation-custom" data-custom-amount-wrap hidden>
-                    <label class="donation-custom-field" for="help-custom-amount">
-                      <span class="donation-custom-prefix" aria-hidden="true">₹</span>
-                      <input
-                        id="help-custom-amount"
-                        type="text"
-                        inputmode="numeric"
-                        name="custom-amount"
-                        autocomplete="off"
-                        spellcheck="false"
-                        maxlength="7"
-                        placeholder="Enter amount…"
-                        data-custom-amount
-                        aria-label="Custom donation amount in rupees"
-                        aria-describedby="help-custom-error"
-                      />
-                    </label>
-                    <p class="donation-custom-error" data-custom-error id="help-custom-error" role="alert" hidden>Enter an amount greater than 0.</p>
-                  </div>
-
-                  <button type="submit" class="btn btn-dark btn-lg btn-block donation-submit" data-donation-submit>
-              Donate <span class="donation-submit-amount">₹ 2,000</span> monthly
-              <span class="donation-submit-arrow" aria-hidden="true">→</span>
-            </button>
-                </div>
-
-                <p class="donation-support">
-            <span class="donation-support-icon" aria-hidden="true">
-              <img src="assets/shield.svg" alt="" width="26" height="24" />
-            </span>
-            <span>Every rupee here translates into medicine, food, and care.</span>
-          </p>
-              </form>
+            <div class="donate-card donate-card--contact">
+              <h2 class="donate-card-title">Get in touch</h2>
+              <p>
+                All donations to Goodoo are tax exempt under 80G. Please note that Goodoo does not have CSR certification and is not liable for CSR donations at the moment. All donations go towards animal care and operational costs of running Goodoo Rescue and Rehab Centre.
+              </p>
+              <div class="donate-contact">
+                <a class="donate-contact-email" href="mailto:goodoo.trust@gmail.com">goodoo.trust@gmail.com</a>
+                <button type="button" class="copy-btn" data-copy-btn="goodoo.trust@gmail.com" aria-label="Copy email address">
+                  <span class="copy-btn-sizer" aria-hidden="true">
+                    <svg class="copy-btn-tick" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M2.4 6.15 4.85 8.55 9.6 3.45" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Copied
+                  </span>
+                  <span class="copy-btn-live copy-btn-live--idle" data-copy-idle>Copy</span>
+                  <span class="copy-btn-live copy-btn-live--done" aria-hidden="true">
+                    <svg class="copy-btn-tick" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M2.4 6.15 4.85 8.55 9.6 3.45" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Copied
+                  </span>
+                </button>
+              </div>
             </div>
 
-            <div class="donate-shell-bank">
-              <h3 class="donate-shell-bank-title">or, donate directly via bank transfer</h3>
-              <p>
-                Goodoo is a registered, 80G-certified trust — funded entirely by individual donations.
-              </p>
-              <p>
-                Latest tax laws mean we cannot apply for CSR certification until Sept 2027. All donations go directly towards animal care.
-              </p>
-
-              <div class="bank-card">
-                <h4>All donations directly go<br />towards animal care.</h4>
-                <dl class="bank-details">
-                  <div>
-                    <dt>Bank</dt>
-                    <dd>HDFC, HSR Branch</dd>
-                  </div>
-                  <div>
-                    <dt>Name</dt>
-                    <dd>Goodoo Animal Welfare Trust</dd>
-                  </div>
-                  <div>
-                    <dt>Acc. No</dt>
-                    <dd>
-                      <span data-copy="50200103530830">50200103530830</span>
-                      <button type="button" class="copy-btn" data-copy-btn="50200103530830" aria-label="Copy account number">Copy</button>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>IFSC</dt>
-                    <dd>
-                      <span data-copy="HDFC0003758">HDFC0003758</span>
-                      <button type="button" class="copy-btn" data-copy-btn="HDFC0003758" aria-label="Copy IFSC code">Copy</button>
-                    </dd>
-                  </div>
-                </dl>
-              </div>
+            <div class="donate-card donate-card--scan">
+              <figure class="donate-qr">
+                <img src="assets/qr-scan-me.svg" alt="QR code to donate to Goodoo. Scan to pay." width="232" height="232" />
+                <figcaption>Scan to pay</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -601,6 +768,13 @@
     </div>
   </div>
 
+  <button
+    type="button"
+    class="advisor-sheet-backdrop"
+    data-advisor-backdrop
+    hidden
+    aria-label="Close trustee biography"
+  ></button>
   <script src="app.js" defer></script>
 </body>
 </html>

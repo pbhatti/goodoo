@@ -47,6 +47,9 @@
         const accent = getComputedStyle(root).getPropertyValue("--theme-accent").trim();
         if (accent) themeColorMeta.setAttribute("content", accent);
       }
+      document.querySelectorAll("[data-donation-form]").forEach((form) => {
+        form.dispatchEvent(new Event("goodoo:themechange"));
+      });
     };
 
     const positionSheet = () => {
@@ -173,8 +176,8 @@
         type: "milestone",
         month: "Sept",
         year: "2024",
-        copy: "Goodoo Animal Welfare was registered this year.",
-        copyMobile: "Goodoo was registered this year.",
+        copy: "Goodoo Animal Welfare Trust was registered.",
+        copyMobile: "Goodoo Trust was registered.",
       },
       {
         type: "image",
@@ -182,11 +185,11 @@
         alt: "A hopeful rescue dog looking through a green fence",
       },
       {
-        type: "stat",
-        value: "80",
-        label: "rescues",
-        copy: "Our rescues include dogs, cats, and urban wildlife.",
-        copyMobile: "Dogs, cats & urban wildlife.",
+        type: "milestone",
+        month: "Jan",
+        year: "2025",
+        copy: "Land for Goodoo Rescue and Rehab Centre leased.",
+        copyMobile: "Rescue Centre land leased.",
       },
       {
         type: "image",
@@ -194,11 +197,11 @@
         alt: "A golden retriever rescue looking toward the camera",
       },
       {
-        type: "stat",
-        value: "10",
-        label: "adoptions",
-        copy: "Successful dog and cat adoptions. And counting.",
-        copyMobile: "Dog & cat adoptions—and counting.",
+        type: "milestone",
+        month: "Apr",
+        year: "2025",
+        copy: "Goodoo Rescue and Rehab Centre becomes operational.",
+        copyMobile: "Rescue Centre opens.",
       },
     ],
     [
@@ -209,10 +212,10 @@
       },
       {
         type: "stat",
-        value: "45",
-        label: "wards",
-        copy: "Currently home to 38 rescues, with Phase 1 construction having made room for 45.",
-        copyMobile: "Home to 38; room for 45.",
+        value: "150+",
+        label: "rescued",
+        copy: "Dogs and cats rescued, rehabilitated, and rehomed.",
+        copyMobile: "Rescued, rehabbed & rehomed.",
       },
       {
         type: "image",
@@ -220,11 +223,11 @@
         alt: "A white rescue dog standing outdoors",
       },
       {
-        type: "milestone",
-        month: "Jan",
-        year: "2025",
-        copy: "Signed a lease agreement for Goodoo Halfway Home.",
-        copyMobile: "Halfway Home lease signed.",
+        type: "stat",
+        value: "45+",
+        label: "adoptions",
+        copy: "Successful adoptions…and counting!",
+        copyMobile: "Adoptions—and counting!",
       },
       {
         type: "image",
@@ -234,11 +237,11 @@
     ],
     [
       {
-        type: "stat",
-        value: "77",
-        label: "releases",
-        copy: "Over 65 in-patient releases and 12 treat-and-release cases.",
-        copyMobile: "65 in-patient + 12 T&R cases.",
+        type: "milestone",
+        month: "Jan",
+        year: "2026",
+        copy: "Serene's Home for Senior Dogs becomes operational.",
+        copyMobile: "Serene's Home opens.",
       },
       {
         type: "image",
@@ -246,11 +249,11 @@
         alt: "A Goodoo volunteer with a pack of rescued dogs",
       },
       {
-        type: "milestone",
-        month: "April",
-        year: "2025",
-        copy: "Moved existing 38 rescued dogs into Goodoo Halfway Home.",
-        copyMobile: "38 dogs into Halfway Home.",
+        type: "stat",
+        value: "100+",
+        label: "wards",
+        copy: "At Goodoo Rescue and Rehab Centre and Serene's Home for Senior Dogs.",
+        copyMobile: "Across Rescue Centre & Serene's Home.",
       },
       {
         type: "image",
@@ -261,6 +264,20 @@
         type: "image",
         src: "assets/rescue-close.jpg",
         alt: "Close-up of a smiling rescue dog",
+      },
+      {
+        type: "milestone",
+        month: "Apr",
+        year: "2026",
+        copy: "New lease signed for an additional 30,000sqft. Goodoo 2.0 begins!",
+        copyMobile: "30,000sqft lease — Goodoo 2.0 begins!",
+      },
+      {
+        type: "milestone",
+        month: "May",
+        year: "2026",
+        copy: "Construction underway at Goodoo 2.0.",
+        copyMobile: "Goodoo 2.0 construction underway.",
       },
     ],
   ];
@@ -337,59 +354,89 @@
   JourneyBoard(journeyRows, document.querySelector("[data-journey-board]"));
 
   /* ——— Rescue stories carousel ——— */
-  const sitaraCopy = {
-    meta: "Great Dane · Female · Puppy",
-    title: "Sitara’s happy adoption",
-    description: [
-      "Sitara was Goodoo’s first official rescue. A Great Dane who was caged most of her life till she was abandoned in a desolate area, Sitara had multiple broken bones and hairline fractures, and a completely twisted spine. After months of rehabilitation, Sitara was adopted into a wonderful home with a pack of rescue dogs to call her own!",
-    ],
-    cta: {
-      href: "#donate",
-      label: "Help the next Sitara heal →",
-    },
-  };
+  const donateCta = (name) => ({
+    href: "#donate",
+    label: `Help the next ${name} heal →`,
+  });
 
-  /* Placeholder slides — replace each object with unique rescue story content later */
   const rescueStories = [
     {
       id: 1,
-      image1: "assets/story-sitara.jpg",
-      image1Alt: "Sitara, a Great Dane puppy, looking through a green fence during rescue",
-      image2: "assets/story-beach.jpg",
+      image1: "assets/story-sitara.png",
+      image1Alt: "Sitara, a Great Dane puppy, in a crate with bandaged front legs during rescue",
+      image2: "assets/story-beach.png",
       image2Alt: "Sitara healthy and free on a sandy beach after rehabilitation",
-      ...sitaraCopy,
+      meta: "Great Dane · Female · Puppy",
+      title: "Sitara",
+      description: [
+        "Sitara was Goodoo’s first official rescue. A Great Dane who was caged most of her life till she was abandoned in a desolate area, Sitara had multiple broken bones and hairline fractures, and a completely twisted spine. After months of rehabilitation, Sitara was adopted into a wonderful home with a pack of rescue dogs to call her own!",
+      ],
+      cta: donateCta("Sitara"),
     },
     {
       id: 2,
-      image1: "assets/story-beach.jpg",
-      image1Alt: "A rescued dog enjoying open space after rehabilitation",
-      image2: "assets/care-field.jpg",
-      image2Alt: "Rescuers providing medical care to an injured dog",
-      ...sitaraCopy,
+      image1: "assets/story-sundari-1.png",
+      image1Alt: "Sundari looking up from a shelter enclosure after rescue",
+      image2: "assets/story-sundari-2.png",
+      image2Alt: "Sundari resting outdoors, safe and at ease at Goodoo Halfway Home",
+      meta: "Rottweiler · Female",
+      title: "Sundari",
+      description: [
+        "Sundari lived her entire life in a captive breeding facility before being abandoned. By the time she was rescued, she had lost the use of her hind legs due to extreme physical abuse, diet-related obesity, and the sheer number of litters she was made to have. Months of rehabilitation later, today Sundari is safe and happy at Goodoo Halfway Home.",
+      ],
+      cta: donateCta("Sundari"),
     },
     {
       id: 3,
-      image1: "assets/care-field.jpg",
-      image1Alt: "Rescuers providing medical care beside an animal ambulance",
-      image2: "assets/pack-dogs.jpg",
-      image2Alt: "A Goodoo volunteer with a pack of rescued dogs",
-      ...sitaraCopy,
+      image1: "assets/story-mimi-1.png",
+      image1Alt: "Mimi nursing her puppies at Goodoo Halfway Home",
+      image2: "assets/story-mimi-2.png",
+      image2Alt: "Mimi resting with her puppies in a sheltered space at Goodoo",
+      meta: "Indie · Female",
+      title: "Mimi",
+      description: [
+        "Mimi is a feral community dog who was rescued from a neighbourhood when she was almost full-term. The hostile neighbours were attempting to poison her so she wouldn’t have her litter on the street. Mimi came to Goodoo a day before she delivered. As we write, Mimi and her 7 puppies are safe and healthy at Goodoo Halfway Home.",
+      ],
+      cta: donateCta("Mimi"),
     },
     {
       id: 4,
-      image1: "assets/pack-dogs.jpg",
-      image1Alt: "Rescued dogs gathered outdoors with a volunteer",
-      image2: "assets/rescue-close.jpg",
-      image2Alt: "Close-up of a smiling rescue dog",
-      ...sitaraCopy,
+      image1: "assets/story-sweetie-1.png",
+      image1Alt: "Sweetie sitting beside her newborn puppies in a basin after rescue",
+      image2: "assets/story-sweetie-2.png",
+      image2Alt: "Sweetie resting with her puppies on a blanket, safe in Goodoo’s care",
+      meta: "Indian Spitz · Female",
+      title: "Sweetie",
+      description: [
+        "Sweetie accidentally mated with an Indy and had two healthy puppies. However, she and her litter were deemed useless by the breeder and dumped together in a cement mixing trough, in the middle of a public park. Sweetie’s puppies were a mere 5 days old when the three of them were rescued. All three are now safe and sound in Goodoo’s care.",
+      ],
+      cta: donateCta("Sweetie"),
     },
     {
       id: 5,
-      image1: "assets/halfway-home.jpg",
-      image1Alt: "A joyful Labrador being gently scratched under the chin",
-      image2: "assets/story-sitara.jpg",
-      image2Alt: "A hopeful rescue dog looking through a green fence",
-      ...sitaraCopy,
+      image1: "assets/story-mitra-1.png",
+      image1Alt: "Mitra after reconstructive surgery on facial wounds from rescue",
+      image2: "assets/story-mitra-2.png",
+      image2Alt: "Mitra recovered and looking up, now at Goodoo Halfway Home",
+      meta: "Male · Halfway Home",
+      title: "Mitra",
+      description: [
+        "Like so many purebred dogs, Mitra was discarded when he became an inconvenience, after the family had a baby. He was found with maggot wounds having eaten up half his face. After many weeks in hospital and a reconstructive facial surgery, Mitra came to Goodoo Halfway Home, where he is cherished for his intelligence and fine personality.",
+      ],
+      cta: donateCta("Mitra"),
+    },
+    {
+      id: 6,
+      image1: "assets/story-shilo-1.png",
+      image1Alt: "Shilo on a veterinary table after rescue, receiving medical care",
+      image2: "assets/story-shilo-2.png",
+      image2Alt: "Shilo resting on the grass at Goodoo, looking toward the camera",
+      meta: "Super-senior · Female",
+      title: "Shilo",
+      description: [
+        "Shilo was found tied to an abandoned vegetable cart with a massive tumour in her anus. As a super-senior dog, the prognosis was bleak initially, but she took four rounds of chemo very well. She made it through two surgeries to remove the remnants of the growths. She is now at Goodoo, living out the rest of her life with us.",
+      ],
+      cta: donateCta("Shilo"),
     },
   ];
 
@@ -404,16 +451,19 @@
       .map((text) => `<p>${text}</p>`)
       .join("");
 
+    const webpTag = (src) =>
+      /\.jpe?g$/i.test(src) ? `<source srcset="${toWebp(src)}" type="image/webp" />` : "";
+
     article.innerHTML = `
       <figure class="story-card story-card--image">
         <picture>
-          <source srcset="${toWebp(story.image1)}" type="image/webp" />
+          ${webpTag(story.image1)}
           <img src="${story.image1}" alt="${story.image1Alt}" width="900" height="1200" loading="lazy" decoding="async" />
         </picture>
       </figure>
       <figure class="story-card story-card--image story-card--image-secondary">
         <picture>
-          <source srcset="${toWebp(story.image2)}" type="image/webp" />
+          ${webpTag(story.image2)}
           <img src="${story.image2}" alt="${story.image2Alt}" width="1000" height="1100" loading="lazy" decoding="async" />
         </picture>
       </figure>
@@ -572,6 +622,54 @@
 
   StoriesCarousel(document.querySelector("[data-stories-carousel]"), rescueStories);
 
+  /* ——— Our Centre gallery ——— */
+  const CentreGallery = (root) => {
+    if (!root) return;
+    const scroller = root.querySelector("[data-centre-scroller]");
+    const prevBtn = root.querySelector("[data-centre-prev]");
+    const nextBtn = root.querySelector("[data-centre-next]");
+    if (!scroller || !prevBtn || !nextBtn) return;
+
+    const shots = [...scroller.querySelectorAll(".centre-shot")];
+    if (!shots.length) return;
+
+    const updateButtons = () => {
+      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+      const x = scroller.scrollLeft;
+      prevBtn.disabled = x <= 4;
+      nextBtn.disabled = x >= maxScroll - 4;
+    };
+
+    const nearestIndex = () => {
+      const left = scroller.scrollLeft;
+      let best = 0;
+      let bestDist = Infinity;
+      shots.forEach((shot, index) => {
+        const dist = Math.abs(shot.offsetLeft - left);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = index;
+        }
+      });
+      return best;
+    };
+
+    const scrollToIndex = (index) => {
+      const clamped = Math.max(0, Math.min(shots.length - 1, index));
+      const target = shots[clamped];
+      if (!target) return;
+      scroller.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+    };
+
+    prevBtn.addEventListener("click", () => scrollToIndex(nearestIndex() - 1));
+    nextBtn.addEventListener("click", () => scrollToIndex(nearestIndex() + 1));
+    scroller.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons, { passive: true });
+    updateButtons();
+  };
+
+  CentreGallery(document.querySelector("[data-centre-gallery]"));
+
   /* Active nav underline based on scroll position */
   const navLinks = [...document.querySelectorAll("[data-nav-link]")];
   const navSections = navLinks
@@ -654,26 +752,47 @@
   const saveData =
     navigator.connection?.saveData ||
     /2g/.test(navigator.connection?.effectiveType || "");
-  const heroVideo = document.querySelector(".hero-video");
-  const syncHeroVideo = () => {
-    if (!heroVideo) return;
-    const src = heroVideo.getAttribute("data-src");
+  const syncLazyVideo = (video) => {
+    if (!video) return;
+    const src = video.getAttribute("data-src");
+    if (!src) return;
     if (prefersReducedMotion.matches || saveData) {
-      heroVideo.pause?.();
-      heroVideo.removeAttribute("autoplay");
-      heroVideo.removeAttribute("src");
-      heroVideo.load?.();
+      video.pause?.();
+      video.removeAttribute("autoplay");
+      video.removeAttribute("src");
+      video.load?.();
       return;
     }
-    if (src && heroVideo.getAttribute("src") !== src) {
-      heroVideo.setAttribute("src", src);
-      heroVideo.load?.();
+    if (video.getAttribute("src") !== src) {
+      video.setAttribute("src", src);
+      video.load?.();
     }
-    heroVideo.setAttribute("autoplay", "");
-    heroVideo.play?.().catch(() => {});
+    video.setAttribute("autoplay", "");
+    video.play?.().catch(() => {});
   };
-  syncHeroVideo();
-  prefersReducedMotion.addEventListener?.("change", syncHeroVideo);
+  const heroVideo = document.querySelector(".hero-video");
+  const donateVideo = document.querySelector(".donate-shell-video");
+  syncLazyVideo(heroVideo);
+  prefersReducedMotion.addEventListener?.("change", () => {
+    syncLazyVideo(heroVideo);
+    syncLazyVideo(donateVideo);
+  });
+  if (donateVideo) {
+    if ("IntersectionObserver" in window) {
+      const donateVideoIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) syncLazyVideo(donateVideo);
+            else donateVideo.pause?.();
+          });
+        },
+        { rootMargin: "240px 0px" }
+      );
+      donateVideoIo.observe(donateVideo);
+    } else {
+      syncLazyVideo(donateVideo);
+    }
+  }
 
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
@@ -738,6 +857,11 @@
 
     const syncHeading = ({ animate = false } = {}) => {
       if (!heading) return;
+      const isGreen4 = document.documentElement.getAttribute("data-theme") === "green-4";
+      if (isGreen4) {
+        heading.innerHTML = `Choose an amount<br />to donate`;
+        return;
+      }
       const phrase = state.frequency === "monthly" ? "per month" : "once";
       heading.innerHTML = `Choose an amount<br />to donate <div class="fx-marker">${phrase}</div>`;
       if (!animate) return;
@@ -870,10 +994,185 @@
       submitDonation(payload);
     });
 
+    form.addEventListener("goodoo:themechange", () => {
+      syncHeading();
+      syncSubmitLabel();
+    });
+
     syncHeading();
     syncSubmitLabel();
     syncBankNote();
   };
+
+  const initAdvisorPopovers = () => {
+    const cards = [...document.querySelectorAll("[data-advisor]")];
+    if (!cards.length) return;
+
+    const mobileMq = window.matchMedia("(max-width: 61.1875rem)");
+    const isMobile = () => mobileMq.matches;
+    const backdrop = document.querySelector("[data-advisor-backdrop]");
+    const homes = new WeakMap();
+    let openCard = null;
+    let restoreTimer = 0;
+
+    const popoverFor = (card) => {
+      const id = card.querySelector("[data-advisor-trigger]")?.getAttribute("aria-controls");
+      return id ? document.getElementById(id) : card.querySelector("[data-advisor-popover]");
+    };
+
+    const clearPlace = (popover) => {
+      if (!popover) return;
+      popover.style.top = "";
+      popover.style.bottom = "";
+    };
+
+    const park = (popover) => {
+      if (!popover || popover.parentElement === document.body) return;
+      homes.set(popover, { parent: popover.parentElement, next: popover.nextSibling });
+      document.body.appendChild(popover);
+    };
+
+    const restore = (popover) => {
+      const slot = homes.get(popover);
+      if (!slot?.parent) return;
+      if (slot.next) slot.parent.insertBefore(popover, slot.next);
+      else slot.parent.appendChild(popover);
+      homes.delete(popover);
+      clearPlace(popover);
+    };
+
+    const setBackdrop = (open) => {
+      if (!backdrop) return;
+      backdrop.hidden = !open;
+      backdrop.classList.toggle("is-open", open);
+    };
+
+    const setExpanded = (card, open) => {
+      const trigger = card.querySelector("[data-advisor-trigger]");
+      const popover = popoverFor(card);
+      card.classList.toggle("is-open", open);
+      popover?.classList.toggle("is-open", open);
+      trigger?.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!popover) return;
+      popover.setAttribute("aria-hidden", open ? "false" : "true");
+      popover.inert = !open;
+      if (open && isMobile()) {
+        popover.setAttribute("role", "dialog");
+        popover.setAttribute("aria-modal", "true");
+        popover.setAttribute("tabindex", "-1");
+      } else {
+        popover.setAttribute("role", "region");
+        popover.removeAttribute("aria-modal");
+        popover.removeAttribute("tabindex");
+      }
+    };
+
+    const place = (card) => {
+      const popover = popoverFor(card);
+      const trigger = card.querySelector("[data-advisor-trigger]");
+      if (!popover || !trigger) return;
+      if (isMobile()) {
+        clearPlace(popover);
+        return;
+      }
+      const triggerRect = trigger.getBoundingClientRect();
+      const popoverHeight = popover.offsetHeight || 220;
+      const gap = 2;
+      const spaceBelow = window.innerHeight - triggerRect.bottom - gap;
+      const spaceAbove = triggerRect.top - gap;
+      const prefersTop = spaceBelow < popoverHeight + 16 && spaceAbove > spaceBelow;
+      card.dataset.placement = prefersTop ? "top" : "bottom";
+      const offset = `${trigger.offsetHeight + 2}px`;
+      if (prefersTop) {
+        popover.style.top = "auto";
+        popover.style.bottom = offset;
+      } else {
+        popover.style.bottom = "auto";
+        popover.style.top = offset;
+      }
+    };
+
+    const close = (card = openCard) => {
+      if (!card) return;
+      const trigger = card.querySelector("[data-advisor-trigger]");
+      const popover = popoverFor(card);
+      const wasMobileSheet = popover?.parentElement === document.body;
+      setExpanded(card, false);
+      setBackdrop(false);
+      document.body.style.overflow = "";
+      if (openCard === card) openCard = null;
+      if (wasMobileSheet && popover) {
+        window.clearTimeout(restoreTimer);
+        restoreTimer = window.setTimeout(() => restore(popover), 500);
+      }
+    };
+
+    const open = (card) => {
+      if (openCard && openCard !== card) close(openCard);
+      const popover = popoverFor(card);
+      window.clearTimeout(restoreTimer);
+      if (isMobile() && popover) {
+        park(popover);
+        setBackdrop(true);
+        document.body.style.overflow = "hidden";
+      }
+      setExpanded(card, true);
+      openCard = card;
+      place(card);
+      if (isMobile()) popover?.focus();
+    };
+
+    cards.forEach((card) => {
+      const trigger = card.querySelector("[data-advisor-trigger]");
+      trigger?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        if (card.classList.contains("is-open")) close(card);
+        else open(card);
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!openCard || isMobile()) return;
+      const popover = popoverFor(openCard);
+      if (openCard.contains(event.target) || popover?.contains(event.target)) return;
+      close();
+    });
+
+    backdrop?.addEventListener("click", () => {
+      const trigger = openCard?.querySelector("[data-advisor-trigger]");
+      close();
+      trigger?.focus();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !openCard) return;
+      const trigger = openCard.querySelector("[data-advisor-trigger]");
+      close();
+      trigger?.focus();
+    });
+
+    const reposition = () => {
+      if (!openCard) return;
+      const popover = popoverFor(openCard);
+      if (isMobile()) {
+        if (popover) park(popover);
+        setBackdrop(true);
+        document.body.style.overflow = "hidden";
+        place(openCard);
+        return;
+      }
+      if (popover?.parentElement === document.body) restore(popover);
+      setBackdrop(false);
+      document.body.style.overflow = "";
+      place(openCard);
+    };
+    window.addEventListener("resize", reposition);
+    window.addEventListener("scroll", () => {
+      if (openCard && !isMobile()) place(openCard);
+    }, { passive: true });
+  };
+
+  initAdvisorPopovers();
 
   document.querySelectorAll("[data-donation-form]").forEach(initDonationForm);
 
@@ -881,18 +1180,18 @@
     btn.addEventListener("click", async () => {
       const value = btn.getAttribute("data-copy-btn") || "";
       const label = btn.getAttribute("aria-label") || "Copy";
+      const idle = btn.querySelector("[data-copy-idle]");
       try {
         await navigator.clipboard.writeText(value);
-        btn.textContent = "Copied";
         btn.classList.add("is-copied");
         btn.setAttribute("aria-label", `${label.replace(/^Copy /, "Copied ")}`);
         setTimeout(() => {
-          btn.textContent = "Copy";
           btn.classList.remove("is-copied");
           btn.setAttribute("aria-label", label);
         }, 1600);
       } catch {
-        btn.textContent = "Select & copy";
+        if (idle) idle.textContent = "Select & copy";
+        else btn.textContent = "Select & copy";
       }
     });
   });
