@@ -2993,8 +2993,12 @@ p {
 
   [data-theme="option-1"] .hero-content,
   [data-theme="green-4"] .hero-content {
+    /* The stack is vertically centred, so trading padding top-for-bottom
+       moves it down without changing the hero's height. */
+    --hero-drop: 1.625rem; /* nets 20px more air under the header */
     gap: 0.625rem;
-    padding-top: calc(var(--header-h) + clamp(2rem, 9vw, 3.25rem));
+    padding-top: calc(var(--header-h) + clamp(2rem, 9vw, 3.25rem) + var(--hero-drop));
+    padding-bottom: calc(var(--hero-form-spill) + 0.5rem - var(--hero-drop));
   }
 
   [data-theme="green-4"] .hero-bless-img {
@@ -3020,6 +3024,7 @@ p {
     margin-inline: auto;
     font-size: 1rem; /* 16px */
     max-width: 17.5rem;
+    padding-top: 0.75rem; /* 12px */
     padding-inline: 0.5rem;
     white-space: normal;
     text-wrap: balance;
