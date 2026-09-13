@@ -254,7 +254,7 @@
       image1Alt: "Mitra after reconstructive surgery on facial wounds from rescue",
       image2: "assets/story-mitra-2.png",
       image2Alt: "Mitra recovered and looking up, now at Goodoo Halfway Home",
-      meta: "Male · Halfway Home",
+      meta: "Husky · Male",
       title: "Mitra",
       description: [
         "Like so many purebred dogs, Mitra was discarded when he became an inconvenience, after the family had a baby. He was found with maggot wounds having eaten up half his face. After many weeks in hospital and a reconstructive facial surgery, Mitra came to Goodoo Halfway Home, where he is cherished for his intelligence and fine personality.",
@@ -267,7 +267,7 @@
       image1Alt: "Shilo on a veterinary table after rescue, receiving medical care",
       image2: "assets/story-shilo-2.png",
       image2Alt: "Shilo resting on the grass at Goodoo, looking toward the camera",
-      meta: "Super-senior · Female",
+      meta: "Great Dane · Female",
       title: "Shilo",
       description: [
         "Shilo was found tied to an abandoned vegetable cart with a massive tumour in her anus. As a super-senior dog, the prognosis was bleak initially, but she took four rounds of chemo very well. She made it through two surgeries to remove the remnants of the growths. She is now at Goodoo, living out the rest of her life with us.",
