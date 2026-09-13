@@ -868,16 +868,17 @@ p {
 .hero-bless-lede {
   position: relative;
   margin: 0;
-  max-width: none;
+  max-width: 22rem;
+  padding-top: 0.5rem; /* 8px */
   padding-inline: 1.25rem;
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 1rem; /* 16px */
+  font-size: 1.25rem; /* 20px */
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.012em;
   text-align: center;
-  white-space: nowrap;
+  text-wrap: balance;
 }
 
 /* Option 1 — inline “Dog bless” + paw */
