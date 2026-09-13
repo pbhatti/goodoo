@@ -1843,7 +1843,10 @@ p {
   .journey-row {
     flex-wrap: nowrap;
     min-height: 13.75rem;
-    justify-content: center;
+    justify-content: flex-start;
+    /* A full row of five overhangs the container; start every row on that edge
+       so short rows still line up with the columns above. */
+    margin-left: calc((100% - (5 * 13.75rem + 4 * var(--journey-gap))) / 2);
   }
 
   .journey-card {

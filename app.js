@@ -99,6 +99,8 @@
         src: "assets/rescue-close.jpg",
         alt: "Close-up of a smiling rescue dog",
       },
+    ],
+    [
       {
         type: "milestone",
         month: "Apr",
