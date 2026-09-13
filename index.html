@@ -1,19 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="green-4">
+<html lang="en" data-theme="option-1">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    (function () {
-      try {
-        var theme = localStorage.getItem("goodoo-theme");
-        if (theme === "green-5") theme = "green-4";
-        if (theme === "green-1" || theme === "green-2" || theme === "green-3" || theme === "green-4") {
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-      } catch (e) {}
-    })();
-  </script>
   <title>Goodoo Animal Welfare Trust — Bengaluru</title>
   <meta name="description" content="Goodoo gives urban animals in Bengaluru the love, medical care, and second chance they deserve. Donate to support rescue, rehabilitation, and adoption." />
   <meta name="theme-color" content="#99DAA6" />
@@ -59,23 +48,6 @@
           <a href="#impact" data-nav-link>Our journey</a>
           <a href="#team" data-nav-link>Our team</a>
         </nav>
-        <div class="theme-switcher" data-theme-switcher>
-          <button
-            type="button"
-            class="theme-switcher-toggle"
-            data-theme-toggle
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-controls="theme-menu"
-            aria-label="Colour theme"
-            id="theme-switcher-btn"
-          >
-            <span data-theme-label>Green 4</span>
-            <svg class="theme-switcher-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <path d="M2.25 4.5L6 8.25L9.75 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
         <a class="btn btn-dark header-donate" href="#donate">Donate</a>
         <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
           <span></span><span></span>
@@ -109,7 +81,13 @@
       <div class="hero-content">
         <h1 class="hero-title reveal">
           <span class="theme-copy theme-copy--default">Giving Bengaluru's <em>urban animals</em> the care and second chance they deserve.</span>
-          <span class="theme-copy theme-copy--green-4">
+          <span class="theme-copy theme-copy--option-1">
+            <span class="hero-bless hero-bless--inline">
+              <span class="hero-bless-text">Dog bless</span>
+              <span class="hero-bless-paw" aria-hidden="true"></span>
+            </span>
+          </span>
+          <span class="theme-copy theme-copy--option-2">
             <span class="hero-bless">
               <img
                 class="hero-bless-img"
@@ -464,6 +442,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Devika Rao</h4>
+                <p class="advisor-popover-role">Market Research &amp; Communications · Ex Accenture and Puma</p>
                 <p>Devika brings market research and brand communications experience from Accenture and Puma to a trust that has to earn public attention, not demand it. She helps Goodoo speak in a voice that is clear, specific, and easy for Bengaluru to trust.</p>
                 <p>On the board she watches how rescue stories, donor updates, and neighbourhood campaigns land — so the work on the street is matched by comms that stay honest and useful.</p>
               </div>
@@ -500,6 +479,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Smriti Rana</h4>
+                <p class="advisor-popover-role">Head, Strategic Programmes &amp; Partnerships · Pallium India</p>
                 <p>Smriti leads strategic programmes and partnerships at Pallium India, and brings that same discipline of care-systems to Goodoo’s board. She knows how a small team stays effective when the need on the ground never pauses.</p>
                 <p>As a trustee she helps the organisation build partnerships that last, and programmes that can grow without losing the quality of care each animal receives.</p>
               </div>
@@ -536,6 +516,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Dr. Shilpaa Anand</h4>
+                <p class="advisor-popover-role">Humanities Department · BITS Pilani, Hyderabad</p>
                 <p>Shilpaa teaches in the Humanities Department at BITS Pilani, Hyderabad. Her academic work sits with questions of care, disability, and how cultures decide whose lives are worth attending to.</p>
                 <p>On the board she keeps Goodoo’s ethics and language honest — how we talk about street animals, caregivers, and the city they share — so the trust’s story never outruns the work.</p>
               </div>
@@ -572,6 +553,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Chitra Raghavan</h4>
+                <p class="advisor-popover-role">Partner · Rajaram Legal</p>
                 <p>Chitra is a partner at Rajaram Legal and brings legal clarity to a trust that handles rescues, land, donations, and public accountability every week. She helps keep the paperwork as sturdy as the kennels.</p>
                 <p>As a trustee she watches governance, compliance, and the quiet decisions that protect the animals — and the people who show up for them — when something goes wrong.</p>
               </div>
@@ -608,6 +590,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Swaroop Bhartiya</h4>
+                <p class="advisor-popover-role">Sr. Marketing and Content Professional</p>
                 <p>Swaroop is a senior marketing and content professional who helps Goodoo find a public voice that is warm and specific — never guilt-heavy, never vague. He treats every campaign as a chance to make one more person care enough to act.</p>
                 <p>On the board he guides how stories, updates, and outreach stay true to the animals and to the people doing the daily work of feeding, treating, and holding space.</p>
               </div>
@@ -643,6 +626,7 @@
                 inert
               >
                 <h4 class="advisor-popover-title">Shilpa Colluru</h4>
+                <p class="advisor-popover-role">Head—Awareness and Outreach</p>
                 <p>Shilpa heads Awareness and Outreach — the work of getting Bengaluru to see street animals as neighbours, not noise. She connects volunteers, apartment groups, and the trust so a rescue does not stay invisible.</p>
                 <p>As a trustee she keeps Goodoo present in the city: more people who know who to call, how to help, and why a well-run rehab centre matters for the dogs who live on our streets.</p>
               </div>
@@ -740,68 +724,6 @@
       </nav>
     </div>
   </footer>
-
-  <div class="theme-layer" data-theme-layer>
-    <button type="button" class="theme-backdrop" data-theme-backdrop aria-label="Close colour theme" tabindex="-1" hidden></button>
-    <div
-      class="theme-sheet"
-      data-theme-sheet
-    >
-      <div class="theme-sheet-chrome">
-        <span class="theme-sheet-handle" aria-hidden="true"></span>
-        <p class="theme-sheet-title" id="theme-sheet-title">Colour theme</p>
-      </div>
-      <ul class="theme-menu" id="theme-menu" role="listbox" aria-labelledby="theme-switcher-btn" aria-hidden="true">
-        <li>
-          <button type="button" class="theme-option" role="option" data-theme-option="green-1" aria-selected="false">
-            <span>Green 1</span>
-            <span class="theme-swatches" aria-hidden="true">
-              <i style="--swatch:#337436"></i>
-              <i style="--swatch:#D8ECD5"></i>
-              <i style="--swatch:#FF987E"></i>
-              <i style="--swatch:#2C2C2C"></i>
-              <i style="--swatch:#F9F4F2"></i>
-            </span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="theme-option" role="option" data-theme-option="green-2" aria-selected="false">
-            <span>Green 2</span>
-            <span class="theme-swatches" aria-hidden="true">
-              <i style="--swatch:#007850"></i>
-              <i style="--swatch:#D0F4E2"></i>
-              <i style="--swatch:#FFB900"></i>
-              <i style="--swatch:#2C2C2C"></i>
-              <i style="--swatch:#EFEEE7"></i>
-            </span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="theme-option" role="option" data-theme-option="green-3" aria-selected="false">
-            <span>Green 3</span>
-            <span class="theme-swatches" aria-hidden="true">
-              <i style="--swatch:#327544"></i>
-              <i style="--swatch:#D9F0DC"></i>
-              <i style="--swatch:#ABE677"></i>
-              <i style="--swatch:#2C2C2C"></i>
-              <i style="--swatch:#F3F8F8"></i>
-            </span>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="theme-option is-selected" role="option" data-theme-option="green-4" aria-selected="true">
-            <span>Green 4</span>
-            <span class="theme-swatches" aria-hidden="true">
-              <i style="--swatch:#008118"></i>
-              <i style="--swatch:#99DAA6"></i>
-              <i style="--swatch:#013809"></i>
-              <i style="--swatch:#F7F4EC"></i>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
 
   <button
     type="button"
