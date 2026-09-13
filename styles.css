@@ -3002,6 +3002,11 @@ p {
     padding-bottom: calc(var(--hero-form-spill) + 0.5rem - var(--hero-drop));
   }
 
+  .hero-donate-anchor {
+    /* Sit 32px lower over the hero image */
+    margin-top: calc((var(--hero-form-spill) * -1) + 2rem);
+  }
+
   [data-theme="green-4"] .hero-bless-img {
     width: min(20rem, 84vw);
   }
