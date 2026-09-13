@@ -95,18 +95,18 @@
         alt: "A happy rescue dog outdoors after rehabilitation",
       },
       {
-        type: "image",
-        src: "assets/rescue-close.jpg",
-        alt: "Close-up of a smiling rescue dog",
-      },
-    ],
-    [
-      {
         type: "milestone",
         month: "Apr",
         year: "2026",
         copy: "New lease signed for an additional 30,000sqft. Goodoo 2.0 begins!",
         copyMobile: "30,000sqft lease — Goodoo 2.0 begins!",
+      },
+    ],
+    [
+      {
+        type: "image",
+        src: "assets/rescue-close.jpg",
+        alt: "Close-up of a smiling rescue dog",
       },
       {
         type: "milestone",
