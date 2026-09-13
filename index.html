@@ -111,14 +111,20 @@
           <span class="theme-copy theme-copy--default">Giving Bengaluru's <em>urban animals</em> the care and second chance they deserve.</span>
           <span class="theme-copy theme-copy--green-4">
             <span class="hero-bless">
-              <span class="hero-bless-paw" aria-hidden="true"></span>
-              <span class="hero-bless-text">
-                <div class="fx-starlight">Dog</div>
-                <div class="fx-starlight">Bless</div>
-              </span>
+              <img
+                class="hero-bless-img"
+                src="assets/dogBless.png"
+                alt="Dog Bless"
+                width="362"
+                height="179"
+                decoding="async"
+              />
             </span>
           </span>
         </h1>
+        <p class="hero-bless-lede theme-copy theme-copy--green-4 reveal delay-1">
+          Give a rescued dog the care, safety and love they deserve.
+        </p>
       </div>
       <div class="hero-scroll" aria-hidden="true">
         <span>Scroll</span>
@@ -262,58 +268,87 @@
           </p>
         </div>
 
-        <div class="centre-gallery reveal" data-centre-gallery>
-          <div class="centre-gallery-scroller" data-centre-scroller tabindex="0" role="region" aria-label="Goodoo Rescue and Rehab Centre photo gallery">
-            <figure class="centre-shot centre-shot--lead">
-              <picture>
-                <source srcset="assets/care-field.webp" type="image/webp" />
-                <img src="assets/care-field.jpg" alt="Open grounds at Goodoo Rescue and Rehab Centre with dogs and caretakers" width="1200" height="800" loading="lazy" decoding="async" />
-              </picture>
-              <figcaption class="centre-shot-caption">80,000 sq ft mango orchard</figcaption>
-            </figure>
-
-            <figure class="centre-shot">
-              <picture>
-                <source srcset="assets/halfway-home.webp" type="image/webp" />
-                <img src="assets/halfway-home.jpg" alt="A rescued dog receiving care at the centre" width="800" height="1000" loading="lazy" decoding="async" />
-              </picture>
-              <figcaption class="centre-shot-caption">Home for 150+ rescues</figcaption>
-            </figure>
-
-            <figure class="centre-shot">
-              <picture>
-                <source srcset="assets/pack-dogs.webp" type="image/webp" />
-                <img src="assets/pack-dogs.jpg" alt="Rescued dogs roaming freely with a Goodoo volunteer" width="800" height="1000" loading="lazy" decoding="async" />
-              </picture>
-              <figcaption class="centre-shot-caption">Entirely cage-free</figcaption>
-            </figure>
-
-            <figure class="centre-shot">
-              <picture>
-                <source srcset="assets/story-beach.webp" type="image/webp" />
-                <img src="assets/story-beach.jpg" alt="A happy rescue dog outdoors after rehabilitation" width="800" height="1000" loading="lazy" decoding="async" />
-              </picture>
-              <figcaption class="centre-shot-caption">Space to roam, recover &amp; play</figcaption>
-            </figure>
-
-            <figure class="centre-shot">
-              <picture>
-                <source srcset="assets/hero-dog.webp" type="image/webp" />
-                <img src="assets/hero-dog.jpg" alt="A white rescue dog standing outdoors at the centre" width="800" height="1000" loading="lazy" decoding="async" />
-              </picture>
-            </figure>
-          </div>
-
-          <div class="centre-gallery-toolbar">
-            <button type="button" class="centre-nav-btn" data-centre-prev aria-label="Previous centre photo">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+        <div
+          class="centre-gallery reveal"
+          data-centre-gallery
+          data-default-index="2"
+          data-expand-ratio="0.52"
+          data-trigger="hover"
+        >
+          <div class="accordion-gallery" role="group" aria-label="Goodoo Rescue and Rehab Centre photo gallery">
+            <button type="button" class="accordion-panel" data-accordion-panel aria-pressed="false" aria-label="80,000 sq ft mango orchard">
+              <span class="accordion-panel-media">
+                <picture>
+                  <source srcset="assets/care-field.webp" type="image/webp" />
+                  <img src="assets/care-field.jpg" alt="Open grounds at Goodoo Rescue and Rehab Centre with dogs and caretakers" width="1200" height="800" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="accordion-panel-overlay" aria-hidden="true"></span>
+              <span class="accordion-panel-spine" aria-hidden="true">80,000 sq ft mango orchard</span>
+              <span class="accordion-panel-caption" aria-hidden="true">
+                <span class="accordion-panel-accent" aria-hidden="true"></span>
+                <span class="accordion-panel-text">80,000 sq ft mango orchard</span>
+              </span>
             </button>
-            <button type="button" class="centre-nav-btn" data-centre-next aria-label="Next centre photo">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
+
+            <button type="button" class="accordion-panel" data-accordion-panel aria-pressed="false" aria-label="Home for 150+ rescues">
+              <span class="accordion-panel-media">
+                <picture>
+                  <source srcset="assets/halfway-home.webp" type="image/webp" />
+                  <img src="assets/halfway-home.jpg" alt="A rescued dog receiving care at the centre" width="800" height="1000" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="accordion-panel-overlay" aria-hidden="true"></span>
+              <span class="accordion-panel-spine" aria-hidden="true">Home for 150+ rescues</span>
+              <span class="accordion-panel-caption" aria-hidden="true">
+                <span class="accordion-panel-accent" aria-hidden="true"></span>
+                <span class="accordion-panel-text">Home for 150+ rescues</span>
+              </span>
+            </button>
+
+            <button type="button" class="accordion-panel is-active" data-accordion-panel aria-pressed="true" aria-label="Entirely cage-free">
+              <span class="accordion-panel-media">
+                <picture>
+                  <source srcset="assets/pack-dogs.webp" type="image/webp" />
+                  <img src="assets/pack-dogs.jpg" alt="Rescued dogs roaming freely with a Goodoo volunteer" width="800" height="1000" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="accordion-panel-overlay" aria-hidden="true"></span>
+              <span class="accordion-panel-spine" aria-hidden="true">Entirely cage-free</span>
+              <span class="accordion-panel-caption" aria-hidden="true">
+                <span class="accordion-panel-accent" aria-hidden="true"></span>
+                <span class="accordion-panel-text">Entirely cage-free</span>
+              </span>
+            </button>
+
+            <button type="button" class="accordion-panel" data-accordion-panel aria-pressed="false" aria-label="Space to roam, recover and play">
+              <span class="accordion-panel-media">
+                <picture>
+                  <source srcset="assets/story-beach.webp" type="image/webp" />
+                  <img src="assets/story-beach.jpg" alt="A happy rescue dog outdoors after rehabilitation" width="800" height="1000" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="accordion-panel-overlay" aria-hidden="true"></span>
+              <span class="accordion-panel-spine" aria-hidden="true">Space to roam, recover &amp; play</span>
+              <span class="accordion-panel-caption" aria-hidden="true">
+                <span class="accordion-panel-accent" aria-hidden="true"></span>
+                <span class="accordion-panel-text">Space to roam, recover &amp; play</span>
+              </span>
+            </button>
+
+            <button type="button" class="accordion-panel" data-accordion-panel aria-pressed="false" aria-label="At home in the orchard">
+              <span class="accordion-panel-media">
+                <picture>
+                  <source srcset="assets/hero-dog.webp" type="image/webp" />
+                  <img src="assets/hero-dog.jpg" alt="A white rescue dog standing outdoors at the centre" width="800" height="1000" loading="lazy" decoding="async" />
+                </picture>
+              </span>
+              <span class="accordion-panel-overlay" aria-hidden="true"></span>
+              <span class="accordion-panel-spine" aria-hidden="true">At home in the orchard</span>
+              <span class="accordion-panel-caption" aria-hidden="true">
+                <span class="accordion-panel-accent" aria-hidden="true"></span>
+                <span class="accordion-panel-text">At home in the orchard</span>
+              </span>
             </button>
           </div>
         </div>

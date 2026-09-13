@@ -622,50 +622,85 @@
 
   StoriesCarousel(document.querySelector("[data-stories-carousel]"), rescueStories);
 
-  /* ——— Our Centre gallery ——— */
+  /* ——— Our Centre accordion gallery ——— */
   const CentreGallery = (root) => {
     if (!root) return;
-    const scroller = root.querySelector("[data-centre-scroller]");
-    const prevBtn = root.querySelector("[data-centre-prev]");
-    const nextBtn = root.querySelector("[data-centre-next]");
-    if (!scroller || !prevBtn || !nextBtn) return;
+    const track = root.querySelector(".accordion-gallery");
+    const panels = [...root.querySelectorAll("[data-accordion-panel]")];
+    if (!track || !panels.length) return;
 
-    const shots = [...scroller.querySelectorAll(".centre-shot")];
-    if (!shots.length) return;
+    const parsedDefault = Number.parseInt(root.dataset.defaultIndex ?? "2", 10);
+    const defaultIndex = Number.isFinite(parsedDefault)
+      ? Math.min(panels.length - 1, Math.max(0, parsedDefault))
+      : 2;
+    const hoverTrigger = (root.dataset.trigger || "hover") === "hover";
+    const hoverMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const expandRatio = Number.parseFloat(root.dataset.expandRatio || "0.52");
+    root.style.setProperty("--ag-count", String(panels.length));
+    if (Number.isFinite(expandRatio) && expandRatio > 0.2 && expandRatio < 0.9) {
+      root.style.setProperty("--ag-expand-ratio", String(expandRatio));
+    }
+    let activeIndex = defaultIndex;
 
-    const updateButtons = () => {
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      const x = scroller.scrollLeft;
-      prevBtn.disabled = x <= 4;
-      nextBtn.disabled = x >= maxScroll - 4;
-    };
-
-    const nearestIndex = () => {
-      const left = scroller.scrollLeft;
-      let best = 0;
-      let bestDist = Infinity;
-      shots.forEach((shot, index) => {
-        const dist = Math.abs(shot.offsetLeft - left);
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = index;
+    const setActive = (index) => {
+      const next = Math.max(0, Math.min(panels.length - 1, index));
+      if (next === activeIndex && panels[next].classList.contains("is-active")) return;
+      activeIndex = next;
+      panels.forEach((panel, i) => {
+        const active = i === next;
+        panel.classList.toggle("is-active", active);
+        panel.setAttribute("aria-pressed", active ? "true" : "false");
+        if (active) {
+          panel.removeAttribute("data-tilt");
+        } else {
+          panel.setAttribute("data-tilt", i < next ? "left" : "right");
         }
       });
-      return best;
     };
 
-    const scrollToIndex = (index) => {
-      const clamped = Math.max(0, Math.min(shots.length - 1, index));
-      const target = shots[clamped];
-      if (!target) return;
-      scroller.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+    const panelAtPoint = (clientX) => {
+      let nearest = 0;
+      let best = Infinity;
+      panels.forEach((panel, index) => {
+        const rect = panel.getBoundingClientRect();
+        const mid = (rect.left + rect.right) / 2;
+        const dist = Math.abs(clientX - mid);
+        if (dist < best) {
+          best = dist;
+          nearest = index;
+        }
+      });
+      return nearest;
     };
 
-    prevBtn.addEventListener("click", () => scrollToIndex(nearestIndex() - 1));
-    nextBtn.addEventListener("click", () => scrollToIndex(nearestIndex() + 1));
-    scroller.addEventListener("scroll", updateButtons, { passive: true });
-    window.addEventListener("resize", updateButtons, { passive: true });
-    updateButtons();
+    panels.forEach((panel, index) => {
+      panel.addEventListener("focus", () => setActive(index));
+      panel.addEventListener("click", () => setActive(index));
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!hoverTrigger || !hoverMq.matches || event.pointerType !== "mouse") return;
+      const panel = event.target.closest("[data-accordion-panel]");
+      setActive(panel ? panels.indexOf(panel) : panelAtPoint(event.clientX));
+    });
+
+    root.addEventListener("pointerleave", (event) => {
+      if (!hoverTrigger || !hoverMq.matches || event.pointerType !== "mouse") return;
+      setActive(defaultIndex);
+    });
+
+    track.addEventListener("keydown", (event) => {
+      const keys = { ArrowLeft: -1, ArrowRight: 1, Home: "home", End: "end" };
+      const action = keys[event.key];
+      if (action == null) return;
+      event.preventDefault();
+      const next =
+        action === "home" ? 0 : action === "end" ? panels.length - 1 : activeIndex + action;
+      setActive(next);
+      panels[activeIndex].focus();
+    });
+
+    setActive(defaultIndex);
   };
 
   CentreGallery(document.querySelector("[data-centre-gallery]"));
