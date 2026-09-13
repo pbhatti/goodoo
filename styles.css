@@ -3006,7 +3006,7 @@ p {
   }
 
   [data-theme="option-1"] .hero-bless-text {
-    font-size: clamp(3.25rem, 14vw, 4.75rem);
+    font-size: clamp(2.5rem, calc(14vw - 12px), 4rem);
   }
 
   [data-theme="option-1"] .hero-bless-paw {
