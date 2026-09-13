@@ -2996,15 +2996,15 @@ p {
   [data-theme="green-4"] .hero-content {
     /* The stack is vertically centred, so trading padding top-for-bottom
        moves it down without changing the hero's height. */
-    --hero-drop: 2.25rem; /* nets 28px more air under the header */
+    --hero-drop: 2.75rem; /* nets 36px more air under the header */
     gap: 0.625rem;
     padding-top: calc(var(--header-h) + clamp(2rem, 9vw, 3.25rem) + var(--hero-drop));
     padding-bottom: calc(var(--hero-form-spill) + 0.5rem - var(--hero-drop));
   }
 
   .hero-donate-anchor {
-    /* Sit 32px lower over the hero image */
-    margin-top: calc((var(--hero-form-spill) * -1) + 2rem);
+    /* Sit 40px lower over the hero image */
+    margin-top: calc((var(--hero-form-spill) * -1) + 2.5rem);
   }
 
   [data-theme="green-4"] .hero-bless-img {
